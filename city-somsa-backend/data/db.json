@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "phone": "9989056657887",
+      "passHash": "56657887",
+      "role": "tekshiruvchi",
+      "name": "Bosh Admin",
+      "isSuperAdmin": true,
+      "subStatus": "free"
+    }
+  ],
+  "somsaTypes": [
+    { "id": 1, "name": "Mol go'shtli", "price": 10000 },
+    { "id": 2, "name": "Qo'y go'shtli", "price": 12000 },
+    { "id": 3, "name": "Avashnoy", "price": 6000 },
+    { "id": 4, "name": "Qiyma", "price": 8000 },
+    { "id": 5, "name": "Kartoshkali", "price": 5000 },
+    { "id": 6, "name": "Qovoqli", "price": 5000 },
+    { "id": 7, "name": "Tovuqli", "price": 8000 }
+  ],
+  "productionLogs": [],
+  "salesLogs": [],
+  "auditRequests": [],
+  "expenseLogs": [],
+  "adminNotifications": [],
+  "appSubSettings": {
+    "price": 10000,
+    "cardNumber": "0000 0000 0000 0000",
+    "cardOwner": "Bosh Admin"
+  },
+  "crmExpensesVal": 0,
+  "cardNumber": ""
+}
