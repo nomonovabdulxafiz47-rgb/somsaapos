@@ -140,7 +140,7 @@ th,td{padding:9px 6px;white-space:nowrap}
 </head>
 <body>
 
-<!-- LOGIN / RO'YXATDAN O'TISH -->
+<!-- LOGIN / KIRISH -->
 <div id="loginScreen">
     <div class="login-box" id="loginBox">
         <h2>🥐 SOMSA POS</h2>
@@ -163,23 +163,7 @@ th,td{padding:9px 6px;white-space:nowrap}
         </div>
         <button class="btn-main" onclick="handleLogin()">KIRISH</button>
         <a class="forgot-link" onclick="openForgotModal()">Parolni unutdingizmi?</a>
-        <a class="forgot-link" style="color:var(--primary); font-weight:700; margin-top:12px;" onclick="toggleAuthMode('register')">Tekshiruvchi sifatida ro'yxatdan o'tish</a>
         <p id="loginError" style="color:var(--danger); font-size:12px; font-weight:700; margin-top:8px; display:none;">Login yoki parol xato!</p>
-    </div>
-
-    <div class="login-box" id="registerBox" style="display:none;">
-        <h2>🥐 TEKSHIRUVCHI RO'YXATDAN O'TISH</h2>
-        <p style="font-size:12px; color:var(--slate); margin-bottom:14px;">Faqat Tekshiruvchi ro'yxatdan o'tadi. Sotuvchi va Somsachi hisobini Tekshiruvchi o'zi yaratadi.</p>
-        <div class="form-group"><label>Ismingiz</label><input type="text" id="regName" class="form-control" placeholder="Masalan: Ali" maxlength="40"></div>
-        <div class="form-group">
-            <label>Lavozim</label>
-            <input type="text" class="form-control" value="Tekshiruvchi (Filial boshqaruvchi)" disabled style="opacity:0.85; background:var(--border);">
-        </div>
-        <div class="form-group"><label>Telefon raqam</label><input type="tel" id="regPhone" class="form-control" placeholder="998901234567"></div>
-        <div class="form-group"><label>Parol (kamida 4 belgi)</label><input type="password" id="regPass" class="form-control" placeholder="Parol" autocomplete="new-password"></div>
-        <div class="form-group"><label>Parolni takrorlang</label><input type="password" id="regPass2" class="form-control" placeholder="Parolni takrorlang" autocomplete="new-password"></div>
-        <button class="btn-main" onclick="handleRegister()">RO'YXATDAN O'TISH</button>
-        <a class="forgot-link" style="color:var(--slate); margin-top:12px;" onclick="toggleAuthMode('login')">Kirish oynasiga qaytish</a>
     </div>
 </div>
 
@@ -351,6 +335,17 @@ th,td{padding:9px 6px;white-space:nowrap}
         <!-- ADMIN PANELI (faqat Bosh Admin) -->
         <div id="adminPanelTab" class="tab-content">
             <div id="adminNotificationsArea"></div>
+
+            <!-- YANGI TEKSHIRUVCHI QO'SHISH BO'LIMI -->
+            <div class="card" style="border:2px solid var(--primary); margin-bottom:16px;">
+                <div class="card-title">➕ Yangi Tekshiruvchi Qo'shish</div>
+                <div class="grid-2" style="gap:10px;">
+                    <div class="form-group" style="margin-bottom:0;"><label>Tekshiruvchi ismi</label><input type="text" id="newAdminName" class="form-control" placeholder="Masalan: Alisher" maxlength="40"></div>
+                    <div class="form-group" style="margin-bottom:0;"><label>Telefon raqam (Login)</label><input type="text" id="newAdminPhone" class="form-control" placeholder="998901234567"></div>
+                    <div class="form-group" style="margin-bottom:0;"><label>Parol (kamida 4 belgi)</label><input type="password" id="newAdminPass" class="form-control" autocomplete="new-password"></div>
+                </div>
+                <button class="btn-main" style="margin-top:12px;" onclick="addTekshiruvchiByAdmin()">Tekshiruvchi Yaratish</button>
+            </div>
 
             <div style="display:flex; gap:8px; margin-bottom:16px; overflow-x:auto; padding-bottom:4px;">
                 <button type="button" class="role-tab-btn active" id="subTab1" onclick="switchOwnerSubTab(1)" style="white-space:nowrap; padding:10px 16px; font-size:13px;">📊 1. Statistika</button>
@@ -737,10 +732,6 @@ function togglePasswordVisibility() {
     const p = document.getElementById('loginPassword');
     p.type = p.type === 'password' ? 'text' : 'password';
 }
-function toggleAuthMode(mode) {
-    document.getElementById('loginBox').style.display = mode === 'register' ? 'none' : 'block';
-    document.getElementById('registerBox').style.display = mode === 'register' ? 'block' : 'none';
-}
 function openModal(id) { document.getElementById(id).style.display = 'flex'; }
 function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 function openForgotModal() {
@@ -750,7 +741,6 @@ function openForgotModal() {
 }
 function showLoginOrSetup() {
     document.getElementById('loginBox').style.display = 'block';
-    document.getElementById('registerBox').style.display = 'none';
 }
 
 function pushAdminNotif(phone, name, type, message) {
@@ -759,26 +749,24 @@ function pushAdminNotif(phone, name, type, message) {
     save('adminNotifications', adminNotifications);
 }
 
-function handleRegister() {
-    const name = document.getElementById('regName').value.trim();
-    const role = 'tekshiruvchi';
-    const phone = onlyDigits(document.getElementById('regPhone').value);
-    const p1 = document.getElementById('regPass').value;
-    const p2 = document.getElementById('regPass2').value;
+// BOSH ADMIN TOMONIDAN TEKSHIRUVCHI QO'SHISH
+function addTekshiruvchiByAdmin() {
+    const name = document.getElementById('newAdminName').value.trim();
+    const phone = onlyDigits(document.getElementById('newAdminPhone').value);
+    const pass = document.getElementById('newAdminPass').value;
 
     if (!name || phone.length < 9) { alert("Ism va to'g'ri telefon raqam kiriting!"); return; }
-    if (p1.length < 4) { alert("Parol kamida 4 belgidan iborat bo'lsin!"); return; }
-    if (p1 !== p2) { alert("Parollar bir xil emas!"); return; }
+    if (pass.length < 4) { alert("Parol kamida 4 belgidan iborat bo'lsin!"); return; }
     if (users.some(u => u.phone === phone)) { alert("Bu telefon raqam allaqachon mavjud!"); return; }
 
-    users.push({ phone, passHash: hashPass(p1), role, name, subStatus: 'unpaid', subExpiresAt: null });
+    users.push({ phone, passHash: hashPass(pass), role: 'tekshiruvchi', name, subStatus: 'unpaid', subExpiresAt: null });
     save('users', users);
-    pushAdminNotif(phone, name, 'new_user', `Yangi tekshiruvchi qo'shildi: ${name} (${phone})`);
 
-    toggleAuthMode('login');
-    selectLoginRole('tekshiruvchi');
-    document.getElementById('loginPhone').value = phone;
-    alert("Tekshiruvchi sifatida ro'yxatdan muvaffaqiyatli o'tdingiz!");
+    document.getElementById('newAdminName').value = '';
+    document.getElementById('newAdminPhone').value = '';
+    document.getElementById('newAdminPass').value = '';
+    refreshAllUI();
+    alert(`Yangi tekshiruvchi muvaffaqiyatli qo'shildi!\nIsm: ${name}\nLogin/Tel: ${phone}`);
 }
 
 function handleLogin() {
@@ -1036,7 +1024,6 @@ function addUser() {
 
     users.push({ phone: loginCode, passHash: hashPass(pass), role, name, subStatus: role === 'tekshiruvchi' ? 'unpaid' : 'free', subExpiresAt: null });
     save('users', users);
-    if (role === 'tekshiruvchi') pushAdminNotif(loginCode, name, 'new_user', `Yangi tekshiruvchi qo'shildi: ${name} (${loginCode})`);
 
     ['newUserName', 'newUserPhone', 'newUserPass'].forEach(id => document.getElementById(id).value = '');
     refreshAllUI();
@@ -1084,9 +1071,7 @@ function changeStaffPassword(phone) {
 function setupStaffForm(user) {
     const sel = document.getElementById('newUserRole');
     if (!sel) return;
-    sel.innerHTML = isSuperAdmin(user)
-        ? '<option value="tekshiruvchi">Tekshiruvchi</option>'
-        : '<option value="sotuvchi">Sotuvchi</option><option value="somsachi">Somsachi</option>';
+    sel.innerHTML = '<option value="sotuvchi">Sotuvchi</option><option value="somsachi">Somsachi</option>';
 }
 
 function renderUsers() {
@@ -1103,7 +1088,7 @@ function renderUsers() {
             <td>${actions}</td>
         </tr>`;
     };
-    const settingsList = (currentUser && !isSuperAdmin(currentUser)) ? users.filter(isStaff) : users;
+    const settingsList = (currentUser && !isSuperAdmin(currentUser)) ? users.filter(u => isStaff(u) || u.phone === currentUser.phone) : users;
     const st = document.getElementById('usersTable');
     if (st) st.innerHTML = settingsList.map(rowFor).join('');
     const at = document.getElementById('adminUsersTable');
@@ -1210,7 +1195,6 @@ function setStepQty(val) {
     renderSomsaButtons();
 }
 
-// QO'LDA YOKI TEZKOR QO'SHISH FUNKSIYASI
 function quickAddProduction(somsaId) {
     const somsa = somsaTypes.find(s => s.id === somsaId);
     if (!somsa) return;
@@ -1221,7 +1205,7 @@ function quickAddProduction(somsaId) {
     if (isNaN(qty) || qty <= 0) {
         qty = quickStepQty || 1;
     } else {
-        manualInput.value = ''; // Kiritilgach inputni tozalash
+        manualInput.value = '';
     }
 
     productionLogs.unshift({
