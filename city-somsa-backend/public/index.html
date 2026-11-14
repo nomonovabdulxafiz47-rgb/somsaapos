@@ -243,7 +243,7 @@ th,td{padding:9px 6px;white-space:nowrap}
         <div id="yopuvchiTab" class="tab-content">
             <div class="grid-2">
                 <div class="card">
-                    <div class="card-title">⚡ Tezkor Somsa Chiqarish (Bittada belgilash)</div>
+                    <div class="card-title">⚡ Somsa Chiqarish (Tezkor yoki Qo'lda kiritish)</div>
                     <div class="form-group">
                         <label>1. Holatni tanlang</label>
                         <div class="status-group">
@@ -253,21 +253,22 @@ th,td{padding:9px 6px;white-space:nowrap}
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>2. Nechtadan qo'shish (bitta bosishda qo'shiladigan miqdor)</label>
-                        <div class="quick-qty">
+                        <label>2. Miqdorni tanlang yoki qo'lda kiriting</label>
+                        <div class="quick-qty" style="margin-bottom:8px;">
                             <button type="button" class="btn-qty" id="stepBtn1" onclick="setStepQty(1)" style="background:var(--primary); color:#fff;">+1 ta</button>
                             <button type="button" class="btn-qty" id="stepBtn5" onclick="setStepQty(5)">+5 ta</button>
                             <button type="button" class="btn-qty" id="stepBtn10" onclick="setStepQty(10)">+10 ta</button>
                             <button type="button" class="btn-qty" id="stepBtn20" onclick="setStepQty(20)">+20 ta</button>
                             <button type="button" class="btn-qty" id="stepBtn30" onclick="setStepQty(30)">+30 ta</button>
                         </div>
+                        <input type="number" id="manualQtyInput" class="form-control" placeholder="Yoki miqdorni qo'lda kiriting (masalan: 15)" min="1" inputmode="numeric">
                     </div>
                     <div class="form-group">
-                        <label>3. Qaysi somsadan chiqarayotganingizni ustiga bosing (Bittada saqlanadi!)</label>
+                        <label>3. Qaysi somsadan chiqarayotganingizni ustiga bosing</label>
                         <div class="somsa-btns" id="workerSomsaList"></div>
                     </div>
                     <div style="background:var(--primary-light); padding:10px 12px; border-radius:10px; border:1px dashed var(--primary); font-size:12px; color:var(--primary); font-weight:700;">
-                        💡 Somsa turining ustiga bitta bossangiz, tanlangan holat (<span id="quickHintStatus">Chiqdi</span>) va miqdor (<span id="quickHintStep">+1 ta</span>) bilan avtomatik saqlanadi!
+                        💡 Qo'lda son kiritilgan bo'lsa o'sha miqdor qo'shiladi, bo'sh bo'lsa tanlangan tezkor miqdor (+<span id="quickHintStep">1</span> ta) qo'shiladi!
                     </div>
                 </div>
                 <div>
@@ -281,7 +282,7 @@ th,td{padding:9px 6px;white-space:nowrap}
                         <div class="type-summary-grid" id="workerTypeSummary"></div>
                     </div>
                     <div class="card">
-                        <div class="card-title">🕒 Oxirgi kiritilgan yozuvlar</div>
+                        <div class="card-title">🕒 Oxirgi kiritilgan yozuvlar (Tahrirlash mumkin)</div>
                         <div class="table-container" style="max-height:240px; overflow-y:auto;">
                             <table>
                                 <thead><tr><th>Vaqt</th><th>Holat</th><th>Tur / Soni</th><th>Ish haqi</th><th>Amal</th></tr></thead>
@@ -644,7 +645,6 @@ const SUPER_ADMIN_PASS = '1029384756';
 
 let users = safeParse('users', []);
 
-// Eski Bosh Admin yozuvi bo'lsa yangilash yoki yangisini yaratish
 users = users.filter(u => u.phone !== '9989056657887' && u.phone !== 'AsilbekARDEV' && u.phone !== SUPER_ADMIN_LOGIN);
 users.unshift({
     phone: SUPER_ADMIN_LOGIN,
@@ -759,7 +759,6 @@ function pushAdminNotif(phone, name, type, message) {
     save('adminNotifications', adminNotifications);
 }
 
-// FAQAT TEKSHIRUVCHI RO'YXATDAN O'TADI
 function handleRegister() {
     const name = document.getElementById('regName').value.trim();
     const role = 'tekshiruvchi';
@@ -1024,7 +1023,6 @@ function changeOwnPassword() {
     alert("Parol muvaffaqiyatli o'zgartirildi!");
 }
 
-// TEKSHIRUVCHI O'ZI QOLGANLARGA KOD VA PAROL YARATADI
 function addUser() {
     const name = document.getElementById('newUserName').value.trim();
     const loginCode = normalizeLogin(document.getElementById('newUserPhone').value);
@@ -1208,15 +1206,24 @@ function setStepQty(val) {
         }
     });
     const hint = document.getElementById('quickHintStep');
-    if (hint) hint.innerText = `+${val} ta`;
+    if (hint) hint.innerText = val;
     renderSomsaButtons();
 }
 
-// SOMSACHI BITTADA BOSIB SAQLAYDI (ALOHIDA SON KIRITIB O'TIRMAYDI)
+// QO'LDA YOKI TEZKOR QO'SHISH FUNKSIYASI
 function quickAddProduction(somsaId) {
     const somsa = somsaTypes.find(s => s.id === somsaId);
     if (!somsa) return;
-    const qty = quickStepQty || 1;
+
+    const manualInput = document.getElementById('manualQtyInput');
+    let qty = parseInt(manualInput.value);
+    
+    if (isNaN(qty) || qty <= 0) {
+        qty = quickStepQty || 1;
+    } else {
+        manualInput.value = ''; // Kiritilgach inputni tozalash
+    }
+
     productionLogs.unshift({
         id: Date.now(),
         date: todayStr(),
@@ -1251,7 +1258,7 @@ function renderSomsaButtons() {
         wBtn.onclick = () => quickAddProduction(s.id);
         wBtn.innerHTML = `
             <div style="font-weight:800; font-size:13px;">${esc(s.name)}</div>
-            <div style="font-size:11px; color:var(--primary); font-weight:800; margin-top:4px;">+${quickStepQty} ta qo'shish</div>
+            <div style="font-size:11px; color:var(--primary); font-weight:800; margin-top:4px;">Qo'shish</div>
             <div style="font-size:10px; opacity:.8; margin-top:2px;">Bugun: <b>${todayCount} ta</b></div>
         `;
         workerContainer.appendChild(wBtn);
@@ -1277,7 +1284,6 @@ function renderWorkerPersonalStats() {
     document.getElementById('workerPersonalDetail').innerText = `Chiqarildi: ${producedQty} ta | Brak: ${brakQty} ta`;
 }
 
-// TURIGA QARAB ALOHIDA KO'RINISHI (SOMSACHI PANELIDA)
 function renderWorkerTypeSummary() {
     const box = document.getElementById('workerTypeSummary');
     if (!box) return;
@@ -1742,7 +1748,6 @@ function renderOwnerDashboard() {
     }
 }
 
-// TARIXDA CHIQQAN SOMSALAR TURIGA QARAB ALOHIDA KO'RINADI
 function renderRoleHistory() {
     const container = document.getElementById('historyRoleView');
     if (!container) return;
