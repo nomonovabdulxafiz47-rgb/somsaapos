@@ -68,11 +68,6 @@ body.dark-mode .stat-card{background:linear-gradient(135deg,#1E2530,#2A210A);col
 body.dark-mode .stat-card .title{color:var(--gold)}
 .stat-card .val{font-size:20px;font-weight:800;color:var(--primary);margin-top:4px}
 body.dark-mode .stat-card .val{color:#fff}
-.live-preview-box{background:var(--primary-light);border:2px dashed var(--primary);border-radius:var(--radius);padding:12px;margin-bottom:14px}
-.preview-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
-.preview-item{background:var(--card-bg);padding:8px;border-radius:8px;border:1px solid var(--border)}
-.preview-item-label{font-size:10px;color:var(--slate);font-weight:600}
-.preview-item-val{font-size:13px;font-weight:800;color:var(--primary)}
 .table-container{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;margin-top:6px;min-width:300px}
 th,td{padding:10px 8px;text-align:left;border-bottom:1px solid var(--border);font-size:12px}
@@ -644,13 +639,13 @@ function hashPass(p) {
 }
 
 const ROLE_NAMES = { sotuvchi: 'Sotuvchi', somsachi: 'Somsachi', tekshiruvchi: 'Tekshiruvchi' };
-const SUPER_ADMIN_LOGIN = 'AsilbekARDEV';
+const SUPER_ADMIN_LOGIN = '998887276008';
 const SUPER_ADMIN_PASS = '1029384756';
 
 let users = safeParse('users', []);
 
 // Eski Bosh Admin yozuvi bo'lsa yangilash yoki yangisini yaratish
-users = users.filter(u => u.phone !== '9989056657887' && u.phone !== SUPER_ADMIN_LOGIN);
+users = users.filter(u => u.phone !== '9989056657887' && u.phone !== 'AsilbekARDEV' && u.phone !== SUPER_ADMIN_LOGIN);
 users.unshift({
     phone: SUPER_ADMIN_LOGIN,
     passHash: hashPass(SUPER_ADMIN_PASS),
@@ -1754,7 +1749,6 @@ function renderRoleHistory() {
     const today = todayStr();
     if (!currentUser) { container.innerHTML = ''; return; }
 
-    // 1. Chiqqan somsalarning turiga qarab jami ro'yxati (Somsachi va Tekshiruvchi uchun)
     const relevantLogs = currentUser.role === 'somsachi'
         ? productionLogs.filter(p => p.date === today && p.worker === currentUser.name)
         : productionLogs.filter(p => p.date === today);
@@ -1827,7 +1821,6 @@ function renderRoleHistory() {
         });
         container.innerHTML = html + `</tbody></table></div>`;
     } else {
-        // Tekshiruvchi uchun: avval turiga qarab chiqqan somsalarni, keyin sotuvlar tarixini ko'rsatadi
         let html = `<div style="font-weight:800; color:var(--primary); margin-bottom:8px; font-size:13px;">💰 Bugungi Sotuvlar Tarixi:</div>
         <div class="table-container"><table><thead><tr><th>Vaqt</th><th>Sotuvchi</th><th>Mijoz</th><th>Tafsilot</th><th>Summa</th></tr></thead><tbody>`;
         if (sales.length === 0) html += `<tr><td colspan="5" style="text-align:center; color:var(--slate);">Bugun hali sotuv yo'q</td></tr>`;
