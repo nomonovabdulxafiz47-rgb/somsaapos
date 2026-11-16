@@ -4,14 +4,34 @@ Index · HTML
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#6B001B">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Somsa POS">
+<meta name="format-detection" content="telephone=no">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>City Somsa - Professional POS Tizimi</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--primary:#6B001B;--primary-hover:#4D0013;--primary-light:#FFF0F3;--gold:#D4AF37;--gold-light:#FFF9E6;--dark:#0F172A;--slate:#475569;--bg-body:#F1F5F9;--card-bg:rgba(255,255,255,.95);--text-color:#0F172A;--success:#059669;--success-light:#ECFDF5;--danger:#DC2626;--danger-light:#FEF2F2;--warning:#D97706;--warning-light:#FFFBEB;--blue:#2563EB;--blue-light:#EFF6FF;--border:#E2E8F0;--radius-sm:8px;--radius:16px;--radius-lg:24px;--font-size:14px;--shadow:0 10px 25px -5px rgba(0,0,0,.05),0 8px 10px -6px rgba(0,0,0,.01)}
 body.dark-mode{--bg-body:#090D16;--card-bg:rgba(30,41,59,.95);--text-color:#F8FAFC;--slate:#94A3B8;--border:#334155;--primary-light:#2C000B;--gold-light:#2A240F;--success-light:#064E3B;--danger-light:#7F1D1D;--warning-light:#78350F;--blue-light:#1E3A8A}
 *{box-sizing:border-box;margin:0;padding:0;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;font-size:var(--font-size)}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent;overflow-x:hidden;overscroll-behavior-y:none}
+input,select,button,textarea{-webkit-appearance:none;appearance:none;border-radius:inherit}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--slate) 50%),linear-gradient(135deg,var(--slate) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:32px}
+button,.somsa-btn,nav button,.notif-alert{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+body{min-height:100vh;min-height:100dvh}
+#loginScreen{height:100vh;height:100dvh}
+.modal-overlay{height:100vh;height:100dvh}
+.modal-box{max-height:92vh;max-height:92dvh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+@media(min-width:768px) and (max-width:1100px){.container{max-width:100%}.somsa-btns{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}.form-control,select{min-height:42px}.btn-main{min-height:46px}.btn-action-sm{min-height:34px;padding:7px 10px}}
+@media(max-height:480px) and (orientation:landscape){#loginScreen{align-items:flex-start}.login-box{margin:8px auto}.modal-overlay{align-items:flex-start}.modal-box{max-height:96dvh}}
+@media(max-width:360px){nav button{padding:10px 10px;font-size:11px}.somsa-btns{grid-template-columns:repeat(2,1fr);gap:6px}.stat-card .val{font-size:16px}}
+@media(hover:none){.somsa-btn:hover,.btn-main:hover,.notif-alert:hover{transform:none}}
 body{background:var(--bg-body);color:var(--text-color);padding-bottom:calc(30px + env(safe-area-inset-bottom));transition:background .3s,color .3s;min-height:100vh;overflow-x:hidden;width:100%}
 img{max-width:100%;height:auto}
 button,.somsa-btn,nav button{touch-action:manipulation}
@@ -138,12 +158,118 @@ th,td{padding:9px 6px;white-space:nowrap}
 .card-number-box{font-size:15px;letter-spacing:.5px;padding:10px}
 .login-box{padding:20px 14px;border-radius:20px}
 .login-box h2{font-size:21px}}
+/* Kirish oynasi: butun ekranni qoplaydi */
+#loginScreen{padding:0;align-items:stretch;justify-content:stretch;overflow-y:auto}
+#loginScreen .login-box{max-width:none;width:100%;min-height:100%;margin:0;border-radius:0;border:none;box-shadow:none;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:calc(24px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(20px + env(safe-area-inset-left))}
+#loginScreen .login-box>*{width:100%;max-width:480px}
+#loginScreen .login-box h2{font-size:30px}
+#loginScreen .role-tabs{padding:5px;gap:6px}
+#loginScreen .role-tab-btn{min-height:46px;font-size:13px}
+#loginScreen .btn-main{min-height:50px;font-size:15px}
+/* Orqa fon: somsa rasmi; forma o'rtada */
+#loginScreen{background:#1A0007}
+#loginBg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+#loginScreen .login-box,body.dark-mode #loginScreen .login-box{position:relative;z-index:1;background:transparent!important;backdrop-filter:none;-webkit-backdrop-filter:none;justify-content:center;text-align:center}
+#loginScreen .login-box h2{color:var(--gold);text-shadow:0 2px 12px rgba(0,0,0,.6)}
+#loginScreen .login-box>p{color:#F1E6D0!important;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+#loginScreen .form-group label{color:#F8EBD0;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+#loginScreen .role-tabs{background:rgba(0,0,0,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#loginScreen .role-tab-btn{color:#F1E6D0}
+#loginScreen .role-tab-btn.active{color:#fff}
+#loginScreen .form-control{background:rgba(255,255,255,.94);color:#0F172A}
+#loginScreen .forgot-link{color:#FFD97A;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+#loginScreen #loginError{background:rgba(0,0,0,.55);padding:6px 10px;border-radius:8px;color:#FFB4B4}
+/* Forma har doim ekran o'rtasida: past ekranlarda siqiladi */
+#loginScreen{display:flex;align-items:center;justify-content:center}
+#loginScreen .login-box{margin:auto;height:auto;min-height:100%;justify-content:center}
+@media(max-height:700px){
+#loginScreen .login-box{padding-top:calc(10px + env(safe-area-inset-top));padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+#loginScreen .login-box h2{font-size:24px;margin-bottom:2px}
+#loginScreen .login-box>p{font-size:11px!important;margin-bottom:6px!important}
+#loginScreen .role-tabs{margin:8px 0}
+#loginScreen .role-tab-btn{min-height:38px}
+#loginScreen .form-group{margin-bottom:8px}
+#loginScreen .form-group label{margin-bottom:3px}
+#loginScreen .form-control{min-height:40px!important;padding-top:6px;padding-bottom:6px}
+#loginScreen .btn-main{min-height:42px}
+#loginScreen .forgot-link{margin-top:6px}
+}
+@media(max-height:520px){
+#loginScreen .login-box h2{font-size:20px}
+#loginScreen .role-tab-btn{min-height:32px;font-size:12px}
+#loginScreen .form-control{min-height:36px!important}
+#loginScreen .btn-main{min-height:38px;font-size:13px}
+}
 </style>
 </head>
 <body>
  
 <!-- LOGIN / KIRISH -->
 <div id="loginScreen">
+    <svg id="loginBg" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+            <radialGradient id="lbBg" cx="50%" cy="35%" r="85%"><stop offset="0" stop-color="#4a2514"/><stop offset=".55" stop-color="#241008"/><stop offset="1" stop-color="#0d0503"/></radialGradient>
+            <radialGradient id="lbShade" cx="50%" cy="50%" r="55%"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity=".1"/></radialGradient>
+            <radialGradient id="lbBase" cx=".48" cy=".38" r=".75"><stop offset="0" stop-color="#f5c068"/><stop offset=".5" stop-color="#dc9440"/><stop offset="1" stop-color="#a45618"/></radialGradient>
+            <radialGradient id="lbBake" cx=".5" cy=".55" r=".62"><stop offset=".55" stop-color="#4a1d04" stop-opacity="0"/><stop offset="1" stop-color="#3a1402" stop-opacity=".8"/></radialGradient>
+            <radialGradient id="lbGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".55"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient>
+            <filter id="lbBlurS" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="9"/></filter>
+            <filter id="lbBlurD" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3.5"/></filter>
+            <filter id="lbBlurB" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+            <filter id="lbTex" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+                <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="3" seed="4" result="n"/>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="G" result="d"/>
+                <feGaussianBlur in="d" stdDeviation="2.2" result="b"/>
+                <feSpecularLighting in="b" surfaceScale="7" specularConstant=".75" specularExponent="26" lighting-color="#fff0cc" result="sp"><feDistantLight azimuth="235" elevation="52"/></feSpecularLighting>
+                <feComposite in="sp" in2="d" operator="in" result="spc"/>
+                <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="9" result="g"/>
+                <feColorMatrix in="g" type="matrix" values="0 0 0 0 .30  0 0 0 0 .14  0 0 0 0 .03  0 0 0 .9 -.32" result="grain"/>
+                <feComposite in="grain" in2="d" operator="in" result="gr"/>
+                <feMerge><feMergeNode in="d"/><feMergeNode in="gr"/><feMergeNode in="spc"/></feMerge>
+            </filter>
+            <symbol id="lbS" viewBox="-120 -120 240 240" overflow="visible">
+                <ellipse cx="8" cy="86" rx="104" ry="15" fill="#000" opacity=".6" filter="url(#lbBlurS)"/>
+                <g filter="url(#lbTex)">
+                    <path d="M0,-94 Q14,-102 25,-88 L100,50 Q110,72 88,79 L-88,79 Q-110,72 -100,50 L-25,-88 Q-14,-102 0,-94Z" fill="url(#lbBase)"/>
+                    <path d="M0,-94 Q14,-102 25,-88 L100,50 Q110,72 88,79 L-88,79 Q-110,72 -100,50 L-25,-88 Q-14,-102 0,-94Z" fill="url(#lbBake)"/>
+                    <ellipse cx="-38" cy="38" rx="22" ry="12" fill="#5a2606" opacity=".28"/>
+                    <ellipse cx="34" cy="-4" rx="16" ry="22" fill="#5a2606" opacity=".2"/>
+                    <path d="M-78,66 L78,66" stroke="#7a3a0e" stroke-width="7" stroke-dasharray="7 5" stroke-linecap="round" opacity=".55"/>
+                    <path d="M-86,56 L-18,-76 M86,56 L18,-76" stroke="#7a3a0e" stroke-width="5" stroke-dasharray="6 5" stroke-linecap="round" opacity=".4"/>
+                    <path d="M-6,-66 Q-30,-6 -66,48" fill="none" stroke="#fff3c8" stroke-opacity=".5" stroke-width="6" stroke-linecap="round"/>
+                </g>
+                <ellipse cx="-22" cy="-18" rx="34" ry="52" fill="url(#lbGlow)" transform="rotate(24 -22 -18)"/>
+                <g fill="#f7ecd2" stroke="#b58a4a" stroke-width=".8">
+                    <ellipse cx="-4" cy="-38" rx="4.2" ry="2.2" transform="rotate(30 -4 -38)"/><ellipse cx="14" cy="-18" rx="4.2" ry="2.2" transform="rotate(-20 14 -18)"/>
+                    <ellipse cx="-24" cy="-12" rx="4.2" ry="2.2" transform="rotate(70 -24 -12)"/><ellipse cx="4" cy="6" rx="4.2" ry="2.2" transform="rotate(10 4 6)"/>
+                    <ellipse cx="-38" cy="16" rx="4.2" ry="2.2" transform="rotate(-40 -38 16)"/><ellipse cx="26" cy="20" rx="4.2" ry="2.2" transform="rotate(55 26 20)"/>
+                    <ellipse cx="-12" cy="28" rx="4.2" ry="2.2" transform="rotate(-10 -12 28)"/><ellipse cx="46" cy="38" rx="4.2" ry="2.2" transform="rotate(25 46 38)"/>
+                    <ellipse cx="-54" cy="44" rx="4.2" ry="2.2" transform="rotate(80 -54 44)"/><ellipse cx="12" cy="48" rx="4.2" ry="2.2" transform="rotate(-60 12 48)"/>
+                    <ellipse cx="34" cy="-2" rx="4.2" ry="2.2" transform="rotate(40 34 -2)"/><ellipse cx="-26" cy="50" rx="4.2" ry="2.2" transform="rotate(15 -26 50)"/>
+                    <ellipse cx="2" cy="-58" rx="3.8" ry="2" transform="rotate(-25 2 -58)"/><ellipse cx="60" cy="52" rx="4" ry="2.1" transform="rotate(35 60 52)"/>
+                </g>
+            </symbol>
+        </defs>
+        <rect width="800" height="1200" fill="url(#lbBg)"/>
+        <g filter="url(#lbBlurB)" opacity=".5">
+            <circle cx="90" cy="90" r="46" fill="#ffb04a"/><circle cx="720" cy="300" r="60" fill="#ff8a3a"/><circle cx="40" cy="760" r="55" fill="#ffc46a"/>
+            <circle cx="760" cy="980" r="70" fill="#ff9a40"/><circle cx="400" cy="1160" r="60" fill="#ffb65a"/><circle cx="420" cy="30" r="40" fill="#ffc87a"/>
+        </g>
+        <g opacity=".9" filter="url(#lbBlurD)">
+            <use href="#lbS" x="560" y="40" width="200" height="200" transform="rotate(18 660 140)"/>
+            <use href="#lbS" x="-40" y="500" width="220" height="220" transform="rotate(12 70 610)"/>
+        </g>
+        <g>
+            <use href="#lbS" x="90" y="120" width="290" height="290" transform="rotate(-14 235 265)"/>
+            <use href="#lbS" x="560" y="450" width="300" height="300" transform="rotate(-20 710 600)"/>
+            <use href="#lbS" x="110" y="880" width="320" height="320" transform="rotate(8 270 1040)"/>
+            <use href="#lbS" x="520" y="900" width="250" height="250" transform="rotate(-10 645 1025)"/>
+        </g>
+        <g fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="7" stroke-linecap="round" filter="url(#lbBlurD)">
+            <path d="M250 110 Q225 70 252 30 Q275 -5 248 -40"/><path d="M690 420 Q665 380 692 345"/><path d="M300 860 Q275 820 302 785 Q325 755 298 720"/>
+        </g>
+        <rect width="800" height="1200" fill="url(#lbShade)"/>
+    </svg>
     <div class="login-box" id="loginBox">
         <h2>🥐 SOMSA POS</h2>
         <p style="font-size:12px; color:var(--slate); margin-bottom:14px;">Professional Boshqaruv va Kassa Tizimi</p>
@@ -918,12 +1044,21 @@ function renderSubPaymentPanel() {
  
 function copyAdminCard() {
     const num = (appSubSettings.cardNumber || '').replace(/\s/g, '');
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(num);
-        alert("Karta raqami nusxalandi: " + appSubSettings.cardNumber);
-    } else {
-        alert("Karta raqami: " + appSubSettings.cardNumber);
-    }
+    const done = () => alert("Karta raqami nusxalandi: " + appSubSettings.cardNumber);
+    const fallback = () => {
+        try {
+            const ta = document.createElement('textarea');
+            ta.value = num; ta.setAttribute('readonly', '');
+            ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;font-size:16px;';
+            document.body.appendChild(ta);
+            ta.select(); ta.setSelectionRange(0, 99);
+            const ok = document.execCommand('copy');
+            ta.remove();
+            if (ok) done(); else alert("Karta raqami: " + appSubSettings.cardNumber);
+        } catch (e) { alert("Karta raqami: " + appSubSettings.cardNumber); }
+    };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(num).then(done, fallback);
+    else fallback();
 }
  
 function notifyAdminPayment() {
@@ -1696,18 +1831,29 @@ function exportReportCSV(n) {
 }
  
 function printReceipt(sale) {
-    const w = window.open('', '_blank', 'width=360,height=600');
-    if (!w) { alert("Chek oynasi ochilmadi (brauzer bloklagan bo'lishi mumkin)."); return; }
     const rows = sale.items.map(i => `<tr><td>${esc(i.name)}</td><td>${i.qty} x ${i.price.toLocaleString()}</td><td style="text-align:right">${(i.qty * i.price).toLocaleString()}</td></tr>`).join('');
-    w.document.write(`<html><head><meta charset="UTF-8"><title>Chek</title><style>body{font-family:monospace;font-size:13px;padding:10px;max-width:300px}table{width:100%;border-collapse:collapse}td{padding:3px 0}hr{border:0;border-top:1px dashed #000}</style></head><body>
+    const html = (`<html><head><meta charset="UTF-8"><title>Chek</title><style>body{font-family:monospace;font-size:13px;padding:10px;max-width:300px}table{width:100%;border-collapse:collapse}td{padding:3px 0}hr{border:0;border-top:1px dashed #000}</style></head><body>
         <h3 style="text-align:center;margin:0">CITY SOMSA</h3>
         <p style="text-align:center;margin:2px 0">${esc(sale.date)} ${esc(sale.time)}</p><hr>
         <p>Mijoz: ${esc(sale.customer)}<br>Sotuvchi: ${esc(sale.seller)}<br>To'lov: ${esc(sale.paymentType)}</p><hr>
         <table>${rows}</table><hr>
         <p style="font-size:15px"><b>JAMI: ${sale.total.toLocaleString()} so'm</b></p>
         <p style="text-align:center">Rahmat!</p>
-        <script>window.onload=function(){window.print();}<\/script></body></html>`);
-    w.document.close();
+        </body></html>`);
+    // Popup o'rniga yashirin iframe: iOS/Android brauzerlarida bloklanmaydi
+    const old = document.getElementById('receiptFrame');
+    if (old) old.remove();
+    const fr = document.createElement('iframe');
+    fr.id = 'receiptFrame';
+    fr.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;visibility:hidden;';
+    document.body.appendChild(fr);
+    fr.contentDocument.open();
+    fr.contentDocument.write(html);
+    fr.contentDocument.close();
+    setTimeout(() => {
+        try { fr.contentWindow.focus(); fr.contentWindow.print(); }
+        catch (e) { alert("Chop etish bu qurilmada ishlamadi."); }
+    }, 300);
 }
  
 function setReportDays(panel, n) {
@@ -1974,6 +2120,9 @@ window.onload = function() {
     selectLoginRole('sotuvchi');
     showLoginOrSetup();
     renderCart();
+    if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
 };
 </script>
 </body>
