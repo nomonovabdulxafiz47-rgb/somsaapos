@@ -1,3 +1,5 @@
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -139,7 +141,7 @@ th,td{padding:9px 6px;white-space:nowrap}
 </style>
 </head>
 <body>
-
+ 
 <!-- LOGIN / KIRISH -->
 <div id="loginScreen">
     <div class="login-box" id="loginBox">
@@ -166,7 +168,7 @@ th,td{padding:9px 6px;white-space:nowrap}
         <p id="loginError" style="color:var(--danger); font-size:12px; font-weight:700; margin-top:8px; display:none;">Login yoki parol xato!</p>
     </div>
 </div>
-
+ 
 <!-- ASOSIY ILOVA -->
 <div id="mainApp" style="display:none;">
     <header>
@@ -176,7 +178,7 @@ th,td{padding:9px 6px;white-space:nowrap}
             <button class="btn-logout" onclick="handleLogout()">Chiqish</button>
         </div>
     </header>
-
+ 
     <nav id="mainNav">
         <button id="navYopuvchi" onclick="switchTab('yopuvchiTab')">👨‍🍳 Somsa Chiqarish</button>
         <button id="navKassa" onclick="switchTab('kassaTab')">💰 Kassa (Sotuv)</button>
@@ -186,9 +188,9 @@ th,td{padding:9px 6px;white-space:nowrap}
         <button id="navTarix" onclick="switchTab('tarixTab')">📜 Kunlik Tarix</button>
         <button id="navSozlama" onclick="switchTab('sozlamaTab')">⚙️ Sozlamalar</button>
     </nav>
-
+ 
     <div class="container">
-
+ 
         <!-- DASTUR TO'LOVI (tekshiruvchi uchun) -->
         <div id="subPaymentTab" class="tab-content">
             <div class="sub-paywall-card">
@@ -222,7 +224,7 @@ th,td{padding:9px 6px;white-space:nowrap}
                 <button class="btn-main" style="background:var(--success);" onclick="notifyAdminPayment()">✅ TO'LOV QILDIM (ADMINGA XABAR YUBORISH)</button>
             </div>
         </div>
-
+ 
         <!-- SOMSA CHIQARISH (SOMSACHI) -->
         <div id="yopuvchiTab" class="tab-content">
             <div class="grid-2">
@@ -277,7 +279,7 @@ th,td{padding:9px 6px;white-space:nowrap}
                 </div>
             </div>
         </div>
-
+ 
         <!-- KASSA -->
         <div id="kassaTab" class="tab-content">
             <div class="grid-2">
@@ -331,29 +333,29 @@ th,td{padding:9px 6px;white-space:nowrap}
                 </div>
             </div>
         </div>
-
+ 
         <!-- ADMIN PANELI (faqat Bosh Admin) -->
         <div id="adminPanelTab" class="tab-content">
             <div id="adminNotificationsArea"></div>
-
+ 
             <!-- YANGI TEKSHIRUVCHI QO'SHISH BO'LIMI -->
             <div class="card" style="border:2px solid var(--primary); margin-bottom:16px;">
                 <div class="card-title">➕ Yangi Tekshiruvchi Qo'shish</div>
                 <div class="grid-2" style="gap:10px;">
                     <div class="form-group" style="margin-bottom:0;"><label>Tekshiruvchi ismi</label><input type="text" id="newAdminName" class="form-control" placeholder="Masalan: Alisher" maxlength="40"></div>
-                    <div class="form-group" style="margin-bottom:0;"><label>Telefon raqam (Login)</label><input type="text" id="newAdminPhone" class="form-control" placeholder="998901234567"></div>
+                    <div class="form-group" style="margin-bottom:0;"><label>Login (harf, raqam yoki ikkalasi)</label><input type="text" id="newAdminPhone" class="form-control" placeholder="Masalan: alisher01 yoki 998901234567" autocapitalize="none" autocomplete="off"></div>
                     <div class="form-group" style="margin-bottom:0;"><label>Parol (kamida 4 belgi)</label><input type="password" id="newAdminPass" class="form-control" autocomplete="new-password"></div>
                 </div>
                 <button class="btn-main" style="margin-top:12px;" onclick="addTekshiruvchiByAdmin()">Tekshiruvchi Yaratish</button>
             </div>
-
+ 
             <div style="display:flex; gap:8px; margin-bottom:16px; overflow-x:auto; padding-bottom:4px;">
                 <button type="button" class="role-tab-btn active" id="subTab1" onclick="switchOwnerSubTab(1)" style="white-space:nowrap; padding:10px 16px; font-size:13px;">📊 1. Statistika</button>
                 <button type="button" class="role-tab-btn" id="subTab2" onclick="switchOwnerSubTab(2)" style="white-space:nowrap; padding:10px 16px; font-size:13px;">💳 2. Oylik to‘lovlar & Tekshiruvchilar</button>
                 <button type="button" class="role-tab-btn" id="subTab3" onclick="switchOwnerSubTab(3)" style="white-space:nowrap; padding:10px 16px; font-size:13px;">📋 3. Foydalanuvchilar</button>
                 <button type="button" class="role-tab-btn" id="subTab4" onclick="switchOwnerSubTab(4)" style="white-space:nowrap; padding:10px 16px; font-size:13px;">📈 4. CRM Hisob-kitob</button>
             </div>
-
+ 
             <div id="ownerSubContent1" class="owner-sub-content">
                 <div class="card">
                     <div class="card-title">📊 1. Statistika</div>
@@ -369,7 +371,7 @@ th,td{padding:9px 6px;white-space:nowrap}
                     </div>
                 </div>
             </div>
-
+ 
             <div id="ownerSubContent2" class="owner-sub-content" style="display:none;">
                 <div class="card">
                     <div class="card-title">💳 2. Oylik to‘lovlar & Tekshiruvchilar</div>
@@ -382,7 +384,7 @@ th,td{padding:9px 6px;white-space:nowrap}
                     </div>
                 </div>
             </div>
-
+ 
             <div id="ownerSubContent3" class="owner-sub-content" style="display:none;">
                 <div class="card">
                     <div class="card-title">👥 3. Foydalanuvchilar</div>
@@ -403,7 +405,7 @@ th,td{padding:9px 6px;white-space:nowrap}
                     </div>
                 </div>
             </div>
-
+ 
             <div id="ownerSubContent4" class="owner-sub-content" style="display:none;">
                 <div class="card">
                     <div class="card-title">📈 4. CRM Hisob-kitob</div>
@@ -426,9 +428,39 @@ th,td{padding:9px 6px;white-space:nowrap}
                 </div>
             </div>
         </div>
-
+ 
         <!-- TEKSHIRUVCHI PANELI -->
         <div id="ownerDashboardTab" class="tab-content">
+            <div class="card" style="border:2px solid var(--primary);">
+                <div class="card-title">👥 Xodimlar (Sotuvchi / Somsachi) va Kod-Parol Yaratish</div>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Ism</th><th>Kod / Login</th><th>Lavozim</th><th>Amal</th></tr></thead>
+                        <tbody id="usersTable"></tbody>
+                    </table>
+                </div>
+                <div class="section-sep">
+                    <div style="font-weight:800; color:var(--primary); margin-bottom:10px; font-size:13px;">➕ Yangi xodim qo'shish</div>
+                    <div class="grid-2" style="gap:10px;">
+                        <div class="form-group" style="margin-bottom:0;"><label>Xodim ismi</label><input type="text" id="newUserName" class="form-control" placeholder="Ali" maxlength="40"></div>
+                        <div class="form-group" style="margin-bottom:0;"><label>Login (harf, raqam yoki ikkalasi)</label><input type="text" id="newUserPhone" class="form-control" placeholder="Masalan: ali01 yoki 998901234567" autocapitalize="none" autocomplete="off"></div>
+                        <div class="form-group" style="margin-bottom:0;">
+                            <label>Lavozim</label>
+                            <select id="newUserRole" class="form-control">
+                                <option value="sotuvchi">Sotuvchi</option>
+                                <option value="somsachi">Somsachi</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-bottom:0;"><label>Parol (kamida 4 belgi)</label><input type="password" id="newUserPass" class="form-control" autocomplete="new-password"></div>
+                    </div>
+                    <button class="btn-main" style="margin-top:12px;" onclick="addUser()">Xodimni qo'shish</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">💳 Mijozlar Uchun Karta (Kassa to'lovi)</div>
+                <div class="form-group"><label>Karta raqami (kassada karta to'lovida ko'rinadi)</label><input type="text" id="cardNumberInput" class="form-control" placeholder="8600 0000 0000 0000" inputmode="numeric" maxlength="23"></div>
+                <button class="btn-main" onclick="saveCardNumber()">Kartani saqlash</button>
+            </div>
             <div class="grid-3" style="margin-bottom:16px;">
                 <div class="stat-card">
                     <div class="title">Bugungi Jami Tushum</div>
@@ -446,6 +478,15 @@ th,td{padding:9px 6px;white-space:nowrap}
                     <table>
                         <thead><tr><th>Ishchi</th><th>Chiqardi</th><th>Brak</th><th>Ish haqi</th></tr></thead>
                         <tbody id="ownerWorkerStatsTable"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">🏆 Bugungi eng ko'p sotilgan somsalar</div>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Somsa</th><th>Sotildi</th><th>Tushum</th></tr></thead>
+                        <tbody id="topSellingTable"></tbody>
                     </table>
                 </div>
             </div>
@@ -472,7 +513,7 @@ th,td{padding:9px 6px;white-space:nowrap}
                 </div>
             </div>
         </div>
-
+ 
         <!-- TARIX -->
         <div id="tarixTab" class="tab-content">
             <div class="card">
@@ -480,7 +521,7 @@ th,td{padding:9px 6px;white-space:nowrap}
                 <div id="historyRoleView"></div>
             </div>
         </div>
-
+ 
         <!-- SOZLAMALAR -->
         <div id="sozlamaTab" class="tab-content">
             <div class="grid-2">
@@ -493,15 +534,17 @@ th,td{padding:9px 6px;white-space:nowrap}
                         <div class="form-group"><label>Karta egasining ism-familiyasi</label><input type="text" id="adminSubOwnerInput" class="form-control" placeholder="Masalan: Akmal Karimov" maxlength="50"></div>
                         <button class="btn-main" style="background:var(--gold); color:#0F172A;" onclick="saveAdminSubSettings()">💾 Obuna Sozlamalarini Saqlash</button>
                     </div>
-                    <div class="card">
+                    <div class="card" id="priceCard" style="display:none;">
                         <div class="card-title">Somsa Narxlari</div>
                         <div id="priceSettings"></div>
-                        <button class="btn-main" style="margin-top:14px;" onclick="savePrices()">Narxlarni saqlash</button>
-                    </div>
-                    <div class="card">
-                        <div class="card-title">💳 Mijozlar Uchun Karta Ma'lumoti (Kassa)</div>
-                        <div class="form-group"><label>Karta raqami (kassa to'lov oynasida ko'rinadi)</label><input type="text" id="cardNumberInput" class="form-control" placeholder="8600 0000 0000 0000" inputmode="numeric" maxlength="23"></div>
-                        <button class="btn-main" onclick="saveCardNumber()">Kartani saqlash</button>
+                        <div class="form-group" style="margin-top:12px;"><label>Somsachi ish haqi (1 dona uchun, so'm)</label><input type="number" id="workerRateInput" class="form-control" min="0"></div>
+                        <button class="btn-main" style="margin-top:6px;" onclick="savePrices()">Narxlarni saqlash</button>
+                        <div class="section-sep">
+                            <div style="font-weight:800; color:var(--primary); margin-bottom:8px; font-size:13px;">➕ Yangi somsa turi qo'shish</div>
+                            <div class="form-group"><label>Nomi</label><input type="text" id="newSomsaName" class="form-control" maxlength="30" placeholder="Masalan: Pishloqli"></div>
+                            <div class="form-group"><label>Narxi (so'm)</label><input type="number" id="newSomsaPrice" class="form-control" min="1" placeholder="7000"></div>
+                            <button class="btn-main" style="background:var(--success);" onclick="addSomsaType()">Somsa turini qo'shish</button>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -525,36 +568,11 @@ th,td{padding:9px 6px;white-space:nowrap}
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-title">👥 Xodimlar va Kod-Parol Yaratish</div>
-                <div class="table-container">
-                    <table>
-                        <thead><tr><th>Ism</th><th>Kod / Login</th><th>Lavozim</th><th>Amal</th></tr></thead>
-                        <tbody id="usersTable"></tbody>
-                    </table>
-                </div>
-                <div class="section-sep">
-                    <div style="font-weight:800; color:var(--primary); margin-bottom:10px; font-size:13px;">➕ Yangi xodimga kod va parol yaratish</div>
-                    <div class="grid-2" style="gap:10px;">
-                        <div class="form-group" style="margin-bottom:0;"><label>Xodim ismi</label><input type="text" id="newUserName" class="form-control" placeholder="Ali" maxlength="40"></div>
-                        <div class="form-group" style="margin-bottom:0;"><label>Kirish kodi (yoki telefon)</label><input type="text" id="newUserPhone" class="form-control" placeholder="Masalan: ali01 yoki 998901234567"></div>
-                        <div class="form-group" style="margin-bottom:0;">
-                            <label>Lavozim</label>
-                            <select id="newUserRole" class="form-control">
-                                <option value="sotuvchi">Sotuvchi</option>
-                                <option value="somsachi">Somsachi</option>
-                            </select>
-                        </div>
-                        <div class="form-group" style="margin-bottom:0;"><label>Parol (kamida 4 belgi)</label><input type="password" id="newUserPass" class="form-control" autocomplete="new-password"></div>
-                    </div>
-                    <button class="btn-main" style="margin-top:12px;" onclick="addUser()">Kod va parolni yaratish</button>
-                </div>
-            </div>
         </div>
-
+ 
     </div>
 </div>
-
+ 
 <!-- OBUNA BOSHQARUV MODALI -->
 <div class="modal-overlay" id="subManageModal">
     <div class="modal-box">
@@ -567,7 +585,7 @@ th,td{padding:9px 6px;white-space:nowrap}
         <button class="btn-main" style="background:var(--border); color:var(--text-color);" onclick="closeModal('subManageModal')">Yopish</button>
     </div>
 </div>
-
+ 
 <!-- KARTA TO'LOV MODALI -->
 <div class="modal-overlay" id="paymentModal">
     <div class="modal-box">
@@ -579,7 +597,7 @@ th,td{padding:9px 6px;white-space:nowrap}
         <button class="btn-main" style="background:var(--border); color:var(--text-color);" onclick="closeModal('paymentModal')">Bekor qilish</button>
     </div>
 </div>
-
+ 
 <!-- TAHRIRLASH / O'CHIRISH MODALI -->
 <div class="modal-overlay" id="editModal">
     <div class="modal-box">
@@ -594,7 +612,7 @@ th,td{padding:9px 6px;white-space:nowrap}
         <button class="btn-main" style="background:var(--border); color:var(--text-color);" onclick="closeModal('editModal')">Bekor qilish</button>
     </div>
 </div>
-
+ 
 <!-- PAROLNI TIKLASH MODALI -->
 <div class="modal-overlay" id="forgotModal">
     <div class="modal-box">
@@ -606,7 +624,7 @@ th,td{padding:9px 6px;white-space:nowrap}
         <button class="btn-main" style="background:var(--border); color:var(--text-color);" onclick="closeModal('forgotModal')">Bekor qilish</button>
     </div>
 </div>
-
+ 
 <script>
 function safeParse(key, fallback) {
     try { const v = JSON.parse(localStorage.getItem(key)); return (v === null || v === undefined) ? fallback : v; }
@@ -620,7 +638,9 @@ function esc(s) {
 function pad2(n) { return String(n).padStart(2, '0'); }
 function todayStr() { const d = new Date(); return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); }
 function onlyDigits(s) { return String(s || '').replace(/\D/g, ''); }
-function normalizeLogin(s) { return String(s || '').trim(); }
+function normalizeLogin(s) { return String(s || '').trim().replace(/\s+/g, ''); }
+function sameLogin(a, b) { return String(a || '').toLowerCase() === String(b || '').toLowerCase(); }
+function validLogin(s) { return /^[A-Za-z0-9_.\-]{3,30}$/.test(s); }
 function hashPass(p) {
     const s = 'citysomsa|' + p;
     let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
@@ -633,13 +653,13 @@ function hashPass(p) {
     h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
     return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(16);
 }
-
+ 
 const ROLE_NAMES = { sotuvchi: 'Sotuvchi', somsachi: 'Somsachi', tekshiruvchi: 'Tekshiruvchi' };
 const SUPER_ADMIN_LOGIN = '998887276008';
 const SUPER_ADMIN_PASS = '1029384756';
-
+ 
 let users = safeParse('users', []);
-
+ 
 users = users.filter(u => u.phone !== '9989056657887' && u.phone !== 'AsilbekARDEV' && u.phone !== SUPER_ADMIN_LOGIN);
 users.unshift({
     phone: SUPER_ADMIN_LOGIN,
@@ -650,14 +670,14 @@ users.unshift({
     subStatus: 'free'
 });
 save('users', users);
-
+ 
 let appSubSettings = safeParse('appSubSettings', { price: 10000, cardNumber: '0000 0000 0000 0000', cardOwner: 'Asilbek Admin' });
 let adminNotifications = safeParse('adminNotifications', []);
-
+ 
 let selectedLoginRole = 'sotuvchi';
 let currentUser = null;
 let selectedPaymentType = 'Naqd';
-
+ 
 let somsaTypes = safeParse('somsaTypes', [
     { id: 1, name: "Mol go'shtli", price: 10000 },
     { id: 2, name: "Qo'y go'shtli", price: 12000 },
@@ -667,7 +687,7 @@ let somsaTypes = safeParse('somsaTypes', [
     { id: 6, name: "Qovoqli", price: 5000 },
     { id: 7, name: "Tovuqli", price: 8000 }
 ]);
-
+ 
 let productionLogs = safeParse('productionLogs', []);
 let salesLogs = safeParse('salesLogs', []);
 let auditRequests = safeParse('auditRequests', []);
@@ -675,19 +695,19 @@ let expenseLogs = safeParse('expenseLogs', []);
 let kassaReportDays = 7, ownerReportDays = 7;
 let cardNumber = localStorage.getItem('cardNumber') || '';
 let crmExpensesVal = parseInt(localStorage.getItem('crmExpensesVal')) || 0;
-
+ 
 let quickStepQty = 1;
 let currentStatus = 'Chiqdi';
 let cart = [];
-const WORKER_RATE = 1500;
-
+let WORKER_RATE = parseInt(localStorage.getItem('workerRate')) || 1500;
+ 
 let failedAttempts = 0;
 let lockUntil = 0;
-
+ 
 if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('dark-mode');
 let savedFontSize = localStorage.getItem('fontSize') || '14px';
 document.documentElement.style.setProperty('--font-size', savedFontSize);
-
+ 
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
@@ -696,9 +716,9 @@ function changeFontSize(size) {
     document.documentElement.style.setProperty('--font-size', size);
     localStorage.setItem('fontSize', size);
 }
-
+ 
 function isSuperAdmin(user) { return !!user && (user.isSuperAdmin === true || user.phone === SUPER_ADMIN_LOGIN); }
-
+ 
 function checkSubscriptionActive(user) {
     if (!user) return false;
     if (isSuperAdmin(user)) return true;
@@ -707,7 +727,7 @@ function checkSubscriptionActive(user) {
     if (user.subStatus === '1month' && user.subExpiresAt) return Date.now() < user.subExpiresAt;
     return false;
 }
-
+ 
 function getProduced(somsaId, day) {
     return productionLogs.filter(p => p.date === day && p.somsaId === somsaId && p.status !== 'Brak').reduce((s, p) => s + p.qty, 0);
 }
@@ -721,7 +741,7 @@ function getSold(somsaId, day) {
 }
 function getRemain(somsaId, day) { return getProduced(somsaId, day) - getSold(somsaId, day); }
 function getInCart(somsaId) { const it = cart.find(c => c.id === somsaId); return it ? it.qty : 0; }
-
+ 
 function selectLoginRole(role) {
     selectedLoginRole = role;
     document.querySelectorAll('#loginBox .role-tab-btn').forEach(b => b.classList.remove('active'));
@@ -742,33 +762,34 @@ function openForgotModal() {
 function showLoginOrSetup() {
     document.getElementById('loginBox').style.display = 'block';
 }
-
+ 
 function pushAdminNotif(phone, name, type, message) {
     adminNotifications = adminNotifications.filter(n => !(n.phone === phone && !n.resolved));
     adminNotifications.unshift({ id: Date.now(), phone, name, type, message, time: new Date().toLocaleTimeString(), resolved: false });
     save('adminNotifications', adminNotifications);
 }
-
+ 
 // BOSH ADMIN TOMONIDAN TEKSHIRUVCHI QO'SHISH
 function addTekshiruvchiByAdmin() {
     const name = document.getElementById('newAdminName').value.trim();
-    const phone = onlyDigits(document.getElementById('newAdminPhone').value);
+    const phone = normalizeLogin(document.getElementById('newAdminPhone').value);
     const pass = document.getElementById('newAdminPass').value;
-
-    if (!name || phone.length < 9) { alert("Ism va to'g'ri telefon raqam kiriting!"); return; }
+ 
+    if (!name) { alert("Tekshiruvchi ismini kiriting!"); return; }
+    if (!validLogin(phone)) { alert("Login 3-30 belgi bo'lsin: harf, raqam yoki ikkalasi (bo'sh joysiz)!"); return; }
     if (pass.length < 4) { alert("Parol kamida 4 belgidan iborat bo'lsin!"); return; }
-    if (users.some(u => u.phone === phone)) { alert("Bu telefon raqam allaqachon mavjud!"); return; }
-
+    if (users.some(u => sameLogin(u.phone, phone))) { alert("Bu login allaqachon mavjud!"); return; }
+ 
     users.push({ phone, passHash: hashPass(pass), role: 'tekshiruvchi', name, subStatus: 'unpaid', subExpiresAt: null });
     save('users', users);
-
+ 
     document.getElementById('newAdminName').value = '';
     document.getElementById('newAdminPhone').value = '';
     document.getElementById('newAdminPass').value = '';
     refreshAllUI();
     alert(`Yangi tekshiruvchi muvaffaqiyatli qo'shildi!\nIsm: ${name}\nLogin/Tel: ${phone}`);
 }
-
+ 
 function handleLogin() {
     const now = Date.now();
     const errEl = document.getElementById('loginError');
@@ -777,23 +798,29 @@ function handleLogin() {
         errEl.style.display = 'block';
         return;
     }
-
+ 
     const rawLogin = normalizeLogin(document.getElementById('loginPhone').value);
-    const digitsLogin = onlyDigits(rawLogin);
+    const digitsLogin = /^[\d+\-()]+$/.test(rawLogin) ? onlyDigits(rawLogin) : '';
     const pass = document.getElementById('loginPassword').value;
     const hashed = hashPass(pass);
-
+ 
     const user = users.find(u =>
-        (u.phone === rawLogin || (digitsLogin.length >= 4 && u.phone === digitsLogin)) &&
+        (sameLogin(u.phone, rawLogin) || (digitsLogin.length >= 4 && u.phone === digitsLogin)) &&
         u.passHash === hashed
     );
-
+ 
     if (user && !isSuperAdmin(user) && user.role !== selectedLoginRole) {
         errEl.innerText = `Bu hisob "${ROLE_NAMES[user.role]}" lavozimiga tegishli. Yuqoridan "${ROLE_NAMES[user.role]}" tugmasini tanlab kiring.`;
         errEl.style.display = 'block';
         return;
     }
-
+ 
+    if (user && user.blocked) {
+        errEl.innerText = "Bu hisob bloklangan. Tekshiruvchiga murojaat qiling.";
+        errEl.style.display = 'block';
+        return;
+    }
+ 
     if (user) {
         failedAttempts = 0;
         currentUser = user;
@@ -801,28 +828,28 @@ function handleLogin() {
         document.getElementById('loginPassword').value = '';
         document.getElementById('loginScreen').style.display = 'none';
         document.getElementById('mainApp').style.display = 'block';
-
+ 
         const roleBadge = isSuperAdmin(user) ? 'BOSH ADMIN' : user.role.toUpperCase();
         document.getElementById('currentUserDisplay').innerText = `👤 ${user.name} (${roleBadge})`;
-
+ 
         if (user.role === 'tekshiruvchi' && !isSuperAdmin(user) && !checkSubscriptionActive(user)) {
             pushAdminNotif(user.phone, user.name, 'new_user', `Tekshiruvchi tizimga kirdi (To'lov kutilmoqda): ${user.name} (${user.phone})`);
         }
-
+ 
         applyRolePermissions(user);
         refreshAllUI();
     } else {
         failedAttempts++;
-        errEl.innerText = 'Login/telefon yoki parol xato!';
-        if (failedAttempts >= 5) {
-            lockUntil = Date.now() + 30000;
+        errEl.innerText = `Login/telefon yoki parol xato! (Urinish: ${failedAttempts}/15)`;
+        if (failedAttempts >= 15) {
+            lockUntil = Date.now() + 15000;
             failedAttempts = 0;
-            errEl.innerText = "5 marta xato kiritildi. 30 soniya kuting.";
+            errEl.innerText = "15 marta xato kiritildi. 15 soniya kuting.";
         }
         errEl.style.display = 'block';
     }
 }
-
+ 
 function handleLogout() {
     currentUser = null;
     cart = [];
@@ -831,7 +858,7 @@ function handleLogout() {
     document.getElementById('loginScreen').style.display = 'flex';
     showLoginOrSetup();
 }
-
+ 
 function applyRolePermissions(user) {
     setupStaffForm(user);
     ['navYopuvchi', 'navKassa', 'navAdmin', 'navOwner', 'navSubPay', 'navTarix', 'navSozlama'].forEach(id => {
@@ -840,7 +867,9 @@ function applyRolePermissions(user) {
     const show = ids => ids.forEach(id => document.getElementById(id).style.display = 'flex');
     const adminCard = document.getElementById('adminSubSettingsCard');
     adminCard.style.display = 'none';
-
+    // Somsa narxlarini faqat Tekshiruvchi o'zgartiradi (Bosh Admin emas)
+    document.getElementById('priceCard').style.display = (user.role === 'tekshiruvchi' && !isSuperAdmin(user)) ? 'block' : 'none';
+ 
     if (user.role === 'somsachi') {
         show(['navYopuvchi', 'navTarix']);
         switchTab('yopuvchiTab');
@@ -861,16 +890,16 @@ function applyRolePermissions(user) {
         }
     }
 }
-
+ 
 function renderSubPaymentPanel() {
     if (!currentUser || currentUser.role !== 'tekshiruvchi') return;
     document.getElementById('displayAdminCardNum').innerText = appSubSettings.cardNumber || '0000 0000 0000 0000';
     document.getElementById('displayAdminCardOwner').innerText = appSubSettings.cardOwner || 'Asilbek Admin';
     document.getElementById('displayAdminSubPrice').innerText = Number(appSubSettings.price || 10000).toLocaleString() + " so'm";
-
+ 
     const badgeBox = document.getElementById('activeSubBadgeBox');
     const descEl = document.getElementById('subStatusDesc');
-
+ 
     if (currentUser.subStatus === 'free') {
         badgeBox.innerHTML = `<span class="badge badge-success" style="font-size:12px; padding:6px 12px;">♾️ Siz dastur to'lovidan ozod qilingansiz (Bepul)</span>`;
         descEl.innerText = "Bosh Admin tomonidan sizga cheksiz bepul ruxsat berilgan.";
@@ -886,7 +915,7 @@ function renderSubPaymentPanel() {
         descEl.innerText = "Tizimdan to'liq foydalanish uchun 1 oylik obuna to'lovini amalga oshiring.";
     }
 }
-
+ 
 function copyAdminCard() {
     const num = (appSubSettings.cardNumber || '').replace(/\s/g, '');
     if (navigator.clipboard) {
@@ -896,7 +925,7 @@ function copyAdminCard() {
         alert("Karta raqami: " + appSubSettings.cardNumber);
     }
 }
-
+ 
 function notifyAdminPayment() {
     if (!currentUser) return;
     const u = users.find(x => x.phone === currentUser.phone);
@@ -906,7 +935,7 @@ function notifyAdminPayment() {
     renderSubPaymentPanel();
     alert("Adminga to'lov haqida xabar yuborildi! Admin tasdiqlagandan so'ng panel ochiladi.");
 }
-
+ 
 function saveAdminSubSettings() {
     const price = parseInt(document.getElementById('adminSubPriceInput').value) || 0;
     const digits = onlyDigits(document.getElementById('adminSubCardInput').value.trim());
@@ -918,14 +947,14 @@ function saveAdminSubSettings() {
     refreshAllUI();
     alert("Dastur obuna to'lovi va admin kartasi saqlandi!");
 }
-
+ 
 function renderAdminNotifications() {
     const area = document.getElementById('adminNotificationsArea');
     if (!area) return;
     if (!currentUser || !isSuperAdmin(currentUser)) { area.innerHTML = ''; return; }
     const active = adminNotifications.filter(n => !n.resolved);
     if (active.length === 0) { area.innerHTML = ''; return; }
-
+ 
     let html = `<div class="card" style="border:2px solid var(--warning); background:var(--warning-light);">
         <div class="card-title" style="color:var(--warning); border-bottom-color:rgba(217,119,6,.2);">
             <span>🔔 Yangi Xabarlar (Ustiga bosib to'lov yoki ozod qilishni belgilang)</span>
@@ -942,7 +971,7 @@ function renderAdminNotifications() {
     });
     area.innerHTML = html + `</div>`;
 }
-
+ 
 function openSubManageModal(phone) {
     if (!isSuperAdmin(currentUser)) return;
     const u = users.find(x => x.phone === phone);
@@ -951,36 +980,36 @@ function openSubManageModal(phone) {
     document.getElementById('subManageUserInfo').innerText = `Tekshiruvchi: ${u.name} (${u.phone})`;
     openModal('subManageModal');
 }
-
+ 
 function setTekshiruvchiSub(mode) {
     if (!isSuperAdmin(currentUser)) return;
     const phone = document.getElementById('subManagePhone').value;
     const u = users.find(x => x.phone === phone);
     if (!u) return;
-
+ 
     if (mode === '1month') { u.subStatus = '1month'; u.subExpiresAt = Date.now() + 30 * 24 * 60 * 60 * 1000; }
     else if (mode === 'free') { u.subStatus = 'free'; u.subExpiresAt = null; }
     else if (mode === 'unpaid') { u.subStatus = 'unpaid'; u.subExpiresAt = null; }
-
+ 
     adminNotifications.forEach(n => { if (n.phone === phone) n.resolved = true; });
     save('users', users);
     save('adminNotifications', adminNotifications);
     closeModal('subManageModal');
     refreshAllUI();
-
+ 
     if (mode === '1month') alert(`${u.name} uchun 1 oylik obuna faollashtirildi!`);
     else if (mode === 'free') alert(`${u.name} dastur to'lovidan ozod qilindi!`);
     else alert(`${u.name} obunasi bekor qilindi!`);
 }
-
+ 
 function saveNewPassword() {
     const rawLogin = normalizeLogin(document.getElementById('forgotPhone').value);
     const digitsLogin = onlyDigits(rawLogin);
     const newPass = document.getElementById('newPassword').value;
     if (rawLogin.length < 3) { alert("To'g'ri login yoki telefon raqam kiriting!"); return; }
     if (newPass.length < 4) { alert("Parol kamida 4 belgidan iborat bo'lsin!"); return; }
-
-    const user = users.find(u => u.phone === rawLogin || (digitsLogin.length >= 4 && u.phone === digitsLogin));
+ 
+    const user = users.find(u => sameLogin(u.phone, rawLogin) || (digitsLogin.length >= 4 && u.phone === digitsLogin));
     if (user && (user.role === 'sotuvchi' || user.role === 'somsachi')) {
         alert("Sotuvchi va Somsachi parolini faqat Tekshiruvchi o'zgartira oladi. Tekshiruvchingizga murojaat qiling.");
         return;
@@ -995,7 +1024,7 @@ function saveNewPassword() {
     closeModal('forgotModal');
     alert("So'rov yuborildi. Bosh Admin tasdiqlagandan keyin yangi parol bilan kira olasiz.");
 }
-
+ 
 function changeOwnPassword() {
     if (!currentUser) return;
     const oldP = document.getElementById('oldPassInput').value;
@@ -1010,26 +1039,27 @@ function changeOwnPassword() {
     document.getElementById('newPassInput').value = '';
     alert("Parol muvaffaqiyatli o'zgartirildi!");
 }
-
+ 
 function addUser() {
     const name = document.getElementById('newUserName').value.trim();
     const loginCode = normalizeLogin(document.getElementById('newUserPhone').value);
     const role = document.getElementById('newUserRole').value;
     const pass = document.getElementById('newUserPass').value;
-    if (!name || loginCode.length < 3) { alert("Xodim ismi va kamida 3 belgili kirish kodi (yoki telefon) kiriting!"); return; }
-    if (!currentUser || currentUser.role !== 'tekshiruvchi') return;
-    if (isSuperAdmin(currentUser) ? role !== 'tekshiruvchi' : role === 'tekshiruvchi') { alert("Bu lavozimni qo'shish huquqingiz yo'q!"); return; }
+    if (!name) { alert("Xodim ismini kiriting!"); return; }
+    if (!validLogin(loginCode)) { alert("Login 3-30 belgi bo'lsin: harf, raqam yoki ikkalasi (bo'sh joysiz)!"); return; }
+    if (!currentUser || currentUser.role !== 'tekshiruvchi' || isSuperAdmin(currentUser)) { alert("Xodimni faqat Tekshiruvchi qo'sha oladi!"); return; }
+    if (role !== 'sotuvchi' && role !== 'somsachi') { alert("Bu lavozimni qo'shish huquqingiz yo'q!"); return; }
     if (pass.length < 4) { alert("Parol kamida 4 belgidan iborat bo'lsin!"); return; }
-    if (users.some(u => u.phone.toLowerCase() === loginCode.toLowerCase())) { alert("Bu kirish kodi / telefon allaqachon mavjud!"); return; }
-
+    if (users.some(u => sameLogin(u.phone, loginCode))) { alert("Bu login allaqachon mavjud!"); return; }
+ 
     users.push({ phone: loginCode, passHash: hashPass(pass), role, name, subStatus: role === 'tekshiruvchi' ? 'unpaid' : 'free', subExpiresAt: null });
     save('users', users);
-
+ 
     ['newUserName', 'newUserPhone', 'newUserPass'].forEach(id => document.getElementById(id).value = '');
     refreshAllUI();
     alert(`Muvaffaqiyatli yaratildi!\nXodim: ${name}\nKod: ${loginCode}\nParol: ${pass}`);
 }
-
+ 
 function deleteUser(phone) {
     const u = users.find(x => x.phone === phone);
     if (!u) return;
@@ -1043,9 +1073,17 @@ function deleteUser(phone) {
     save('adminNotifications', adminNotifications);
     refreshAllUI();
 }
-
+ 
+function toggleBlockUser(phone) {
+    const u = users.find(x => x.phone === phone);
+    if (!u || !canDelete(u)) { alert("Huquqingiz yo'q!"); return; }
+    u.blocked = !u.blocked;
+    save('users', users);
+    refreshAllUI();
+}
+ 
 function isStaff(u) { return u.role === 'sotuvchi' || u.role === 'somsachi'; }
-
+ 
 function canChangePass(u) {
     if (!currentUser || isSuperAdmin(u)) return false;
     if (isSuperAdmin(currentUser)) return u.role === 'tekshiruvchi';
@@ -1056,7 +1094,7 @@ function canDelete(u) {
     if (isSuperAdmin(currentUser)) return true;
     return currentUser.role === 'tekshiruvchi' && isStaff(u);
 }
-
+ 
 function changeStaffPassword(phone) {
     const u = users.find(x => x.phone === phone);
     if (!u || !canChangePass(u)) { alert("Bu hisob parolini o'zgartirish huquqingiz yo'q!"); return; }
@@ -1067,22 +1105,23 @@ function changeStaffPassword(phone) {
     save('users', users);
     alert(`${u.name} paroli o'zgartirildi! Yangi parol: ${p}`);
 }
-
+ 
 function setupStaffForm(user) {
     const sel = document.getElementById('newUserRole');
     if (!sel) return;
     sel.innerHTML = '<option value="sotuvchi">Sotuvchi</option><option value="somsachi">Somsachi</option>';
 }
-
+ 
 function renderUsers() {
     const rowFor = u => {
         const isSelf = currentUser && u.phone === currentUser.phone;
         const isAdmin = isSuperAdmin(u);
         let actions = '';
         if (canChangePass(u)) actions += `<button class="btn-action-sm" onclick="changeStaffPassword('${esc(u.phone)}')">🔑 Parol</button>`;
+        if (canDelete(u)) actions += `<button class="btn-action-sm" onclick="toggleBlockUser('${esc(u.phone)}')">${u.blocked ? '✅ Faollashtirish' : '⛔ Bloklash'}</button>`;
         if (canDelete(u)) actions += `<button class="btn-action-sm" onclick="deleteUser('${esc(u.phone)}')">🗑️ O'chirish</button>`;
         return `<tr>
-            <td><b>${esc(u.name)}</b>${isSelf ? ' <span class="badge badge-blue">Siz</span>' : ''}${isAdmin ? ' <span class="badge badge-warning">Admin</span>' : ''}</td>
+            <td><b>${esc(u.name)}</b>${u.blocked ? ' <span class="badge badge-danger">Bloklangan</span>' : ''}${isSelf ? ' <span class="badge badge-blue">Siz</span>' : ''}${isAdmin ? ' <span class="badge badge-warning">Admin</span>' : ''}</td>
             <td><code>${esc(u.phone)}</code></td>
             <td>${esc(ROLE_NAMES[u.role] || u.role)}</td>
             <td>${actions}</td>
@@ -1094,14 +1133,14 @@ function renderUsers() {
     const at = document.getElementById('adminUsersTable');
     if (at) at.innerHTML = users.map(rowFor).join('');
 }
-
+ 
 function toggleEye(btn) {
     const inp = btn.parentElement.querySelector('input');
     if (!inp) return;
     inp.type = inp.type === 'password' ? 'text' : 'password';
     btn.textContent = inp.type === 'password' ? '👁️' : '🙈';
 }
-
+ 
 function addEyes() {
     document.querySelectorAll('input[type="password"]').forEach(inp => {
         let wrap = inp.parentElement;
@@ -1122,13 +1161,13 @@ function addEyes() {
         btn.onclick = () => toggleEye(btn);
     });
 }
-
+ 
 function setPaymentType(type) {
     selectedPaymentType = type;
     document.getElementById('btnPayCash').className = "pay-btn" + (type === 'Naqd' ? " active-cash" : "");
     document.getElementById('btnPayCard').className = "pay-btn" + (type === 'Karta' ? " active-card" : "");
 }
-
+ 
 function refreshAllUI() {
     renderSomsaButtons();
     renderPrices();
@@ -1144,7 +1183,7 @@ function refreshAllUI() {
     renderReports();
     renderRoleHistory();
     renderUsers();
-
+ 
     const ci = document.getElementById('cardNumberInput');
     if (ci && document.activeElement !== ci) ci.value = cardNumber;
     const cei = document.getElementById('crmExpenseInput');
@@ -1156,7 +1195,7 @@ function refreshAllUI() {
     const so = document.getElementById('adminSubOwnerInput');
     if (so && document.activeElement !== so) so.value = appSubSettings.cardOwner;
 }
-
+ 
 function switchTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('nav button').forEach(el => el.classList.remove('active'));
@@ -1164,14 +1203,14 @@ function switchTab(tabId) {
     const btn = Array.from(document.querySelectorAll('nav button')).find(b => (b.getAttribute('onclick') || '').includes("'" + tabId + "'"));
     if (btn) btn.classList.add('active');
 }
-
+ 
 function switchOwnerSubTab(subIndex) {
     for (let i = 1; i <= 4; i++) {
         document.getElementById(`ownerSubContent${i}`).style.display = (i === subIndex) ? 'block' : 'none';
         document.getElementById(`subTab${i}`).classList.toggle('active', i === subIndex);
     }
 }
-
+ 
 function setStatus(status) {
     currentStatus = status;
     document.getElementById('btnChiqdi').className = "status-btn" + (status === 'Chiqdi' ? " active-chiqdi" : "");
@@ -1180,7 +1219,7 @@ function setStatus(status) {
     const hint = document.getElementById('quickHintStatus');
     if (hint) hint.innerText = status;
 }
-
+ 
 function setStepQty(val) {
     quickStepQty = val;
     [1, 5, 10, 20, 30].forEach(n => {
@@ -1194,11 +1233,11 @@ function setStepQty(val) {
     if (hint) hint.innerText = val;
     renderSomsaButtons();
 }
-
+ 
 function quickAddProduction(somsaId) {
     const somsa = somsaTypes.find(s => s.id === somsaId);
     if (!somsa) return;
-
+ 
     const manualInput = document.getElementById('manualQtyInput');
     let qty = parseInt(manualInput.value);
     
@@ -1207,7 +1246,7 @@ function quickAddProduction(somsaId) {
     } else {
         manualInput.value = '';
     }
-
+ 
     productionLogs.unshift({
         id: Date.now(),
         date: todayStr(),
@@ -1223,7 +1262,7 @@ function quickAddProduction(somsaId) {
     save('productionLogs', productionLogs);
     refreshAllUI();
 }
-
+ 
 function renderSomsaButtons() {
     const workerContainer = document.getElementById('workerSomsaList');
     const kassaContainer = document.getElementById('kassaSomsaList');
@@ -1231,12 +1270,12 @@ function renderSomsaButtons() {
     workerContainer.innerHTML = '';
     kassaContainer.innerHTML = '';
     const today = todayStr();
-
+ 
     somsaTypes.forEach(s => {
         const todayCount = productionLogs
             .filter(p => p.date === today && p.somsaId === s.id && p.status !== 'Brak' && (currentUser ? p.worker === currentUser.name : true))
             .reduce((sum, p) => sum + p.qty, 0);
-
+ 
         const wBtn = document.createElement('div');
         wBtn.className = 'somsa-btn';
         wBtn.onclick = () => quickAddProduction(s.id);
@@ -1246,7 +1285,7 @@ function renderSomsaButtons() {
             <div style="font-size:10px; opacity:.8; margin-top:2px;">Bugun: <b>${todayCount} ta</b></div>
         `;
         workerContainer.appendChild(wBtn);
-
+ 
         const remain = getRemain(s.id, today);
         const kBtn = document.createElement('div');
         kBtn.className = 'somsa-btn';
@@ -1256,7 +1295,7 @@ function renderSomsaButtons() {
         kassaContainer.appendChild(kBtn);
     });
 }
-
+ 
 function renderWorkerPersonalStats() {
     if (!currentUser) return;
     const today = todayStr();
@@ -1267,7 +1306,7 @@ function renderWorkerPersonalStats() {
     document.getElementById('workerPersonalEarn').innerText = totalEarn.toLocaleString() + " so'm";
     document.getElementById('workerPersonalDetail').innerText = `Chiqarildi: ${producedQty} ta | Brak: ${brakQty} ta`;
 }
-
+ 
 function renderWorkerTypeSummary() {
     const box = document.getElementById('workerTypeSummary');
     if (!box) return;
@@ -1282,7 +1321,7 @@ function renderWorkerTypeSummary() {
         </div>`;
     }).join('');
 }
-
+ 
 function renderWorkerTodayTable() {
     const tbody = document.getElementById('workerTodayTable');
     if (!tbody) return;
@@ -1306,7 +1345,7 @@ function renderWorkerTodayTable() {
         </tr>`;
     }).join('');
 }
-
+ 
 function addToCart(somsa) {
     const remain = getRemain(somsa.id, todayStr());
     if (getInCart(somsa.id) + 1 > remain) { alert(`"${somsa.name}" qoldig'i yetarli emas! Qoldi: ${remain} ta.`); return; }
@@ -1314,7 +1353,7 @@ function addToCart(somsa) {
     if (item) item.qty++; else cart.push({ id: somsa.id, name: somsa.name, price: somsa.price, qty: 1 });
     renderCart();
 }
-
+ 
 function renderCart() {
     const cartDiv = document.getElementById('cartList');
     if (!cartDiv) return;
@@ -1337,7 +1376,7 @@ function renderCart() {
     cartDiv.innerHTML = html;
     document.getElementById('cartTotal').innerText = total.toLocaleString();
 }
-
+ 
 function changeCartQty(index, delta) {
     const item = cart[index];
     if (!item) return;
@@ -1349,7 +1388,7 @@ function changeCartQty(index, delta) {
     if (item.qty <= 0) cart.splice(index, 1);
     renderCart();
 }
-
+ 
 function completeSale() {
     if (cart.length === 0) { alert("Savat bo'sh!"); return; }
     const today = todayStr();
@@ -1357,7 +1396,7 @@ function completeSale() {
         if (it.qty > getRemain(it.id, today)) { alert(`"${it.name}" qoldig'i yetarli emas!`); return; }
     }
     const totalSum = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
-
+ 
     if (selectedPaymentType === 'Karta') {
         document.getElementById('modalAmount').innerText = totalSum.toLocaleString() + " so'm";
         const info = document.getElementById('paymentCardInfo');
@@ -1377,20 +1416,21 @@ function completeSale() {
         saveFinalSale('Naqd');
     }
 }
-
+ 
 function confirmCardSale() {
     if (!confirm("Pul hisobga tushganini tekshirdingizmi?")) return;
     closeModal('paymentModal');
     saveFinalSale('Karta');
 }
-
+ 
 function saveFinalSale(payType) {
     const custName = document.getElementById('custName').value.trim() || ("Mijoz №" + (salesLogs.length + 1));
-    salesLogs.unshift({
+    const newSale = {
         id: Date.now(), date: todayStr(), time: new Date().toLocaleTimeString(),
         seller: currentUser ? currentUser.name : "Sotuvchi", customer: custName, paymentType: payType,
         items: cart.map(i => ({ ...i })), total: cart.reduce((sum, item) => sum + item.qty * item.price, 0)
-    });
+    };
+    salesLogs.unshift(newSale);
     save('salesLogs', salesLogs);
     cart = [];
     document.getElementById('custName').value = '';
@@ -1398,8 +1438,9 @@ function saveFinalSale(payType) {
     renderCart();
     refreshAllUI();
     alert("Sotuv muvaffaqiyatli yopildi!");
+    if (confirm("Chek chop etilsinmi?")) printReceipt(newSale);
 }
-
+ 
 function renderBalanceTable() {
     const tbody = document.getElementById('balanceTable');
     if (!tbody) return;
@@ -1416,7 +1457,7 @@ function renderBalanceTable() {
         </tr>`;
     }).join('');
 }
-
+ 
 function openEditModal(type, id, action) {
     if (auditRequests.some(r => r.type === type && r.targetId === id && r.status === 'Kutilmoqda')) {
         alert("Bu yozuv uchun so'rov allaqachon yuborilgan.");
@@ -1426,14 +1467,14 @@ function openEditModal(type, id, action) {
     document.getElementById('editItemId').value = id;
     document.getElementById('editItemAction').value = action;
     document.getElementById('editReasonInput').value = '';
-
+ 
     const qtyGroup = document.getElementById('editQtyGroup');
     const saleGroup = document.getElementById('editSaleGroup');
     const title = document.getElementById('editModalTitle');
     const reasonLabel = document.getElementById('editReasonLabel');
     qtyGroup.style.display = 'none';
     saleGroup.style.display = 'none';
-
+ 
     if (action === 'delete') {
         title.innerText = "🗑️ O'chirish So'rovi";
         reasonLabel.innerText = "O'chirish sababi";
@@ -1458,14 +1499,14 @@ function openEditModal(type, id, action) {
     }
     openModal('editModal');
 }
-
+ 
 function submitEditRequest() {
     const type = document.getElementById('editItemType').value;
     const id = parseInt(document.getElementById('editItemId').value);
     const action = document.getElementById('editItemAction').value;
     const reason = document.getElementById('editReasonInput').value.trim();
     if (!reason) { alert("Sababini kiriting!"); return; }
-
+ 
     const req = { id: Date.now(), type, action, targetId: id, requestedBy: currentUser ? currentUser.name : "Xodim", reason, status: 'Kutilmoqda' };
     if (action === 'edit') {
         if (type === 'production') {
@@ -1480,12 +1521,12 @@ function submitEditRequest() {
     refreshAllUI();
     alert("So'rov Tekshiruvchiga yuborildi!");
 }
-
+ 
 function renderAuditRequests() {
     fillAuditTable('auditRequestsTable', r => r.type !== 'password');
     fillAuditTable('adminAuditTable', r => r.type === 'password');
 }
-
+ 
 function fillAuditTable(tableId, filterFn) {
     const tbody = document.getElementById(tableId);
     if (!tbody) return;
@@ -1524,12 +1565,12 @@ function fillAuditTable(tableId, filterFn) {
         </tr>`;
     }).join('');
 }
-
+ 
 function approveAuditRequest(reqId, isApproved) {
     const req = auditRequests.find(r => r.id === reqId);
     if (!req || req.status !== 'Kutilmoqda') return;
     if (req.type === 'password' && !isSuperAdmin(currentUser)) return;
-
+ 
     if (isApproved) {
         if (req.type === 'password') {
             const u = users.find(x => x.phone === req.phone);
@@ -1569,14 +1610,14 @@ function approveAuditRequest(reqId, isApproved) {
     refreshAllUI();
     alert(isApproved ? "So'rov tasdiqlandi!" : "So'rov rad etildi!");
 }
-
+ 
 function saveCrmExpenses() {
     crmExpensesVal = parseInt(document.getElementById('crmExpenseInput').value) || 0;
     localStorage.setItem('crmExpensesVal', crmExpensesVal);
     renderOwnerDashboard();
     alert("Xarajat saqlandi!");
 }
-
+ 
 function addExpense() {
     const title = document.getElementById('expTitle').value.trim();
     const amount = parseInt(document.getElementById('expAmount').value);
@@ -1588,7 +1629,7 @@ function addExpense() {
     refreshAllUI();
     alert("Rasxod saqlandi!");
 }
-
+ 
 function renderExpenses() {
     const list = expenseLogs.filter(e => e.date === todayStr());
     setText('expenseTodayTotal', list.reduce((a, e) => a + e.amount, 0).toLocaleString() + " so'm");
@@ -1603,7 +1644,7 @@ function renderExpenses() {
         <td>${esc(e.time)}</td><td>${esc(e.seller)}</td><td><b>${esc(e.title)}</b></td><td><b>${e.amount.toLocaleString()} so'm</b></td>
     </tr>`).join('') : empty(4);
 }
-
+ 
 function lastNDays(n) {
     const out = [];
     for (let i = 0; i < n; i++) {
@@ -1613,7 +1654,7 @@ function lastNDays(n) {
     }
     return out;
 }
-
+ 
 function buildReport(n) {
     let totS = 0, totE = 0;
     let rows = '';
@@ -1630,27 +1671,59 @@ function buildReport(n) {
     return `<table><thead><tr><th>Sana</th><th>Savdo</th><th>Rasxod</th><th>Sof</th></tr></thead><tbody>${rows}</tbody>
         <tfoot><tr style="font-weight:800;"><td>JAMI</td><td>${totS.toLocaleString()}</td><td style="color:var(--danger);">${totE.toLocaleString()}</td><td style="color:var(${totNet >= 0 ? '--success' : '--danger'});">${totNet.toLocaleString()} so'm</td></tr></tfoot></table>`;
 }
-
+ 
 function reportBox(panel, n) {
     const btn = (d, label) => `<button type="button" class="status-btn ${n === d ? 'active-chiqdi' : ''}" onclick="setReportDays('${panel}', ${d})">${label}</button>`;
-    return `<div class="status-group">${btn(7, '📅 7 kunlik')}${btn(30, '🗓️ 1 oylik (30 kun)')}</div>
+    return `<div class="status-group">${btn(7, '📅 7 kunlik')}${btn(30, '🗓️ 1 oylik (30 kun)')}<button type="button" class="status-btn" onclick="exportReportCSV(${n})">⬇️ Excel (CSV)</button></div>
         <div class="table-container" style="max-height:340px; overflow-y:auto;">${buildReport(n)}</div>`;
 }
-
+ 
+function exportReportCSV(n) {
+    const lines = ['Sana,Savdo,Rasxod,Sof'];
+    lastNDays(n).slice().reverse().forEach(day => {
+        const s = salesLogs.filter(x => x.date === day).reduce((a, x) => a + x.total, 0);
+        const e = expenseLogs.filter(x => x.date === day).reduce((a, x) => a + x.amount, 0);
+        if (s || e) lines.push(`${day},${s},${e},${s - e}`);
+    });
+    const blob = new Blob(['\uFEFF' + lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `hisobot_${todayStr()}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+ 
+function printReceipt(sale) {
+    const w = window.open('', '_blank', 'width=360,height=600');
+    if (!w) { alert("Chek oynasi ochilmadi (brauzer bloklagan bo'lishi mumkin)."); return; }
+    const rows = sale.items.map(i => `<tr><td>${esc(i.name)}</td><td>${i.qty} x ${i.price.toLocaleString()}</td><td style="text-align:right">${(i.qty * i.price).toLocaleString()}</td></tr>`).join('');
+    w.document.write(`<html><head><meta charset="UTF-8"><title>Chek</title><style>body{font-family:monospace;font-size:13px;padding:10px;max-width:300px}table{width:100%;border-collapse:collapse}td{padding:3px 0}hr{border:0;border-top:1px dashed #000}</style></head><body>
+        <h3 style="text-align:center;margin:0">CITY SOMSA</h3>
+        <p style="text-align:center;margin:2px 0">${esc(sale.date)} ${esc(sale.time)}</p><hr>
+        <p>Mijoz: ${esc(sale.customer)}<br>Sotuvchi: ${esc(sale.seller)}<br>To'lov: ${esc(sale.paymentType)}</p><hr>
+        <table>${rows}</table><hr>
+        <p style="font-size:15px"><b>JAMI: ${sale.total.toLocaleString()} so'm</b></p>
+        <p style="text-align:center">Rahmat!</p>
+        <script>window.onload=function(){window.print();}<\/script></body></html>`);
+    w.document.close();
+}
+ 
 function setReportDays(panel, n) {
     if (panel === 'kassa') kassaReportDays = n; else ownerReportDays = n;
     renderReports();
 }
-
+ 
 function renderReports() {
     const k = document.getElementById('kassaReport');
     if (k) k.innerHTML = reportBox('kassa', kassaReportDays);
     const o = document.getElementById('ownerReport');
     if (o) o.innerHTML = reportBox('owner', ownerReportDays);
 }
-
+ 
 function setText(id, text) { const el = document.getElementById(id); if (el) el.innerText = text; }
-
+ 
 function renderOwnerDashboard() {
     const today = todayStr();
     const todaySales = salesLogs.filter(s => s.date === today);
@@ -1663,7 +1736,16 @@ function renderOwnerDashboard() {
     setText('ownerTodayNet', (sum(todaySales) - todayExp).toLocaleString() + " so'm");
     setText('ownerTodayProduced', productionLogs.filter(p => p.date === today && p.status !== 'Brak').reduce((a, p) => a + p.qty, 0).toLocaleString() + " ta");
     setText('ownerTodaySalary', productionLogs.filter(p => p.date === today).reduce((a, p) => a + p.workerFee, 0).toLocaleString() + " so'm");
-
+ 
+    const topBody = document.getElementById('topSellingTable');
+    if (topBody) {
+        const top = somsaTypes.map(s => ({ name: s.name, qty: getSold(s.id, today), sum: getSold(s.id, today) * s.price }))
+            .filter(x => x.qty > 0).sort((a, b) => b.qty - a.qty);
+        topBody.innerHTML = top.length
+            ? top.map((x, i) => `<tr><td><b>${i === 0 ? '🥇 ' : ''}${esc(x.name)}</b></td><td>${x.qty} ta</td><td>${x.sum.toLocaleString()} so'm</td></tr>`).join('')
+            : `<tr><td colspan="3" style="text-align:center; color:var(--slate);">Bugun hali sotuv yo'q</td></tr>`;
+    }
+ 
     const tekshiruvchilar = users.filter(u => u.role === 'tekshiruvchi' && !isSuperAdmin(u));
     const activeT = tekshiruvchilar.filter(u => checkSubscriptionActive(u));
     setText('statTotalUsers', users.length + " ta");
@@ -1672,7 +1754,7 @@ function renderOwnerDashboard() {
     setText('statTotalOrders', salesLogs.length + " ta");
     setText('statActiveAds', activeT.length + " ta");
     setText('statInactiveAds', (tekshiruvchilar.length - activeT.length) + " ta");
-
+ 
     const paidMonthCount = tekshiruvchilar.filter(u => u.subStatus === '1month' && checkSubscriptionActive(u)).length;
     const crmRate = Number(appSubSettings.price || 10000);
     const crmRev = paidMonthCount * crmRate;
@@ -1681,7 +1763,7 @@ function renderOwnerDashboard() {
     setText('crmTotalRevenue', crmRev.toLocaleString() + " so'm");
     setText('crmExpenses', crmExpensesVal.toLocaleString() + " so'm");
     setText('crmNetProfit', (crmRev - crmExpensesVal).toLocaleString() + " so'm");
-
+ 
     const payTbody = document.getElementById('paymentsTable');
     if (payTbody) {
         if (tekshiruvchilar.length === 0) {
@@ -1710,7 +1792,7 @@ function renderOwnerDashboard() {
             }).join('');
         }
     }
-
+ 
     const tbody = document.getElementById('ownerWorkerStatsTable');
     if (tbody) {
         const workerNames = [...new Set(productionLogs.filter(p => p.date === today).map(p => p.worker))];
@@ -1731,17 +1813,17 @@ function renderOwnerDashboard() {
         }
     }
 }
-
+ 
 function renderRoleHistory() {
     const container = document.getElementById('historyRoleView');
     if (!container) return;
     const today = todayStr();
     if (!currentUser) { container.innerHTML = ''; return; }
-
+ 
     const relevantLogs = currentUser.role === 'somsachi'
         ? productionLogs.filter(p => p.date === today && p.worker === currentUser.name)
         : productionLogs.filter(p => p.date === today);
-
+ 
     let prodSummaryHtml = `
         <div style="margin-bottom:18px;">
             <div style="font-weight:800; color:var(--primary); margin-bottom:8px; font-size:13px;">🥐 Chiqqan somsalarning turiga qarab soni (Bugun):</div>
@@ -1769,7 +1851,7 @@ function renderRoleHistory() {
                 </table>
             </div>
         </div>`;
-
+ 
     if (currentUser.role === 'somsachi') {
         let logHtml = `<div style="font-weight:800; color:var(--primary); margin-bottom:8px; font-size:13px;">🕒 Batafsil vaqt bo'yicha tarix:</div>
         <div class="table-container"><table><thead><tr><th>Vaqt</th><th>Somsa Turi</th><th>Holat</th><th>Soni</th><th>Ish haqi</th></tr></thead><tbody>`;
@@ -1790,7 +1872,7 @@ function renderRoleHistory() {
         container.innerHTML = prodSummaryHtml + logHtml + `</tbody></table></div>`;
         return;
     }
-
+ 
     const sales = salesLogs.filter(s => s.date === today);
     if (currentUser.role === 'sotuvchi') {
         let html = `<div class="table-container"><table><thead><tr><th>Vaqt</th><th>Mijoz</th><th>Tafsilot</th><th>To'lov</th><th>Jami</th><th>Amal</th></tr></thead><tbody>`;
@@ -1820,27 +1902,63 @@ function renderRoleHistory() {
         container.innerHTML = prodSummaryHtml + html + `</tbody></table></div>`;
     }
 }
-
+ 
 function renderPrices() {
     const div = document.getElementById('priceSettings');
     if (!div) return;
     div.innerHTML = somsaTypes.map(s => `
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
             <span style="font-weight:700; font-size:12px;">${esc(s.name)}</span>
-            <input type="number" id="price_input_${s.id}" class="form-control" style="width:120px;" value="${s.price}" min="1">
+            <span style="display:flex; gap:4px; align-items:center;">
+                <input type="number" id="price_input_${s.id}" class="form-control" style="width:110px;" value="${s.price}" min="1">
+                <button type="button" class="btn-action-sm" onclick="deleteSomsaType(${s.id})">🗑️</button>
+            </span>
         </div>`).join('');
+    const wr = document.getElementById('workerRateInput');
+    if (wr && document.activeElement !== wr) wr.value = WORKER_RATE;
 }
-
+ 
+function addSomsaType() {
+    if (!currentUser || currentUser.role !== 'tekshiruvchi' || isSuperAdmin(currentUser)) return;
+    const name = document.getElementById('newSomsaName').value.trim();
+    const price = parseInt(document.getElementById('newSomsaPrice').value);
+    if (!name || !price || price <= 0) { alert("Somsa nomi va narxini kiriting!"); return; }
+    if (somsaTypes.some(s => s.name.toLowerCase() === name.toLowerCase())) { alert("Bunday somsa turi bor!"); return; }
+    const id = somsaTypes.reduce((m, s) => Math.max(m, s.id), 0) + 1;
+    somsaTypes.push({ id, name, price });
+    save('somsaTypes', somsaTypes);
+    document.getElementById('newSomsaName').value = '';
+    document.getElementById('newSomsaPrice').value = '';
+    refreshAllUI();
+    alert("Somsa turi qo'shildi!");
+}
+ 
+function deleteSomsaType(id) {
+    if (!currentUser || currentUser.role !== 'tekshiruvchi' || isSuperAdmin(currentUser)) return;
+    const s = somsaTypes.find(x => x.id === id);
+    if (!s) return;
+    const used = productionLogs.some(p => p.somsaId === id) || salesLogs.some(sl => sl.items.some(i => i.id === id));
+    if (used) { alert("Bu somsa turi bo'yicha yozuvlar bor, o'chirib bo'lmaydi."); return; }
+    if (!confirm(`"${s.name}" turini o'chirasizmi?`)) return;
+    somsaTypes = somsaTypes.filter(x => x.id !== id);
+    save('somsaTypes', somsaTypes);
+    refreshAllUI();
+}
+ 
 function savePrices() {
+    if (!currentUser || currentUser.role !== 'tekshiruvchi' || isSuperAdmin(currentUser)) { alert("Narxlarni faqat Tekshiruvchi o'zgartira oladi!"); return; }
     somsaTypes.forEach(s => {
-        const val = parseInt(document.getElementById(`price_input_${s.id}`).value);
+        const inp = document.getElementById(`price_input_${s.id}`);
+        const val = inp ? parseInt(inp.value) : 0;
         if (val && val > 0) s.price = val;
     });
+    const rate = parseInt(document.getElementById('workerRateInput').value);
+    if (!isNaN(rate) && rate >= 0) { WORKER_RATE = rate; localStorage.setItem('workerRate', rate); }
     save('somsaTypes', somsaTypes);
     renderSomsaButtons();
     alert("Narxlar yangilandi!");
 }
-
+ 
 function saveCardNumber() {
     const raw = document.getElementById('cardNumberInput').value.trim();
     const digits = onlyDigits(raw);
@@ -1849,7 +1967,7 @@ function saveCardNumber() {
     localStorage.setItem('cardNumber', cardNumber);
     alert(cardNumber ? "Karta raqami saqlandi!" : "Karta raqami o'chirildi.");
 }
-
+ 
 window.onload = function() {
     addEyes();
     document.getElementById('fontSizeSelect').value = savedFontSize;
@@ -1860,3 +1978,4 @@ window.onload = function() {
 </script>
 </body>
 </html>
+ 
