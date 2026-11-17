@@ -33,18 +33,6 @@ exports.login = async (req, res, next) => {
             return res.status(403).json({ success: false, message: "⛔ Hisobingiz bloklangan!" });
         }
 
-        // Xodim kirayotganda tekshiruvchi muzlatilganligini tekshirish
-        if (user.owner_phone) {
-            const { data: owner } = await supabase
-                .from('users')
-                .select('frozen')
-                .eq('phone', user.owner_phone)
-                .single();
-            if (owner && owner.frozen) {
-                return res.status(403).json({ success: false, message: "❄️ Filial egasi hisobi muzlatilgan!" });
-            }
-        }
-
         res.json({ success: true, user });
     } catch (err) {
         next(err);
